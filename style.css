@@ -14,7 +14,25 @@ header {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px; /* Add this on line 9 */
-  }
+}
+
+header {
+  position: relative;
+}
+
+header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background-image: url("Ed Davis_2.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
 
 input[type="text"],
 input[type="email"],
