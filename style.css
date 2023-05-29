@@ -1,6 +1,7 @@
 /* Set the background color of the body */
 body {
   background-color: #f2f2f2;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 /* Style the header */
@@ -8,6 +9,48 @@ header {
   background-color: #333;
   color: #fff;
   padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px; /* Add this on line 9 */
+  }
+
+input[type="text"],
+input[type="email"],
+textarea {
+    border-radius: 5px; /* Add this on line 16 */
+    border: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add this on line 21 */
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add this on line 26 */
+}
+
+input[type="submit"] {
+  background: linear-gradient(to bottom, #4f8cff, #3461d1); /* Add this on line 33 */
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(to bottom, #3461d1, #4f8cff); /* Add this on line 41 */
 }
 
 /* Style the navigation menu */
