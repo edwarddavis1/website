@@ -1,125 +1,87 @@
-/* Set the background color of the body */
+/* Global styles */
+
 body {
-  background-color: #f2f2f2;
-  font-family: "Helvetica Neue", sans-serif;
-}
-
-/* Style the header */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-}
-.container {
-    max-width: 800px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Header styles */
+  
+  header {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  header p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  /* Form styles */
+  
+  form {
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px; /* Add this on line 9 */
-}
-
-header {
-  position: relative;
-}
-
-header::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 200px;
-  background-image: url("Ed Davis_2.jpg");
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    border-radius: 5px; /* Add this on line 16 */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border-radius: 5px;
     border: none;
     padding: 10px;
     margin-bottom: 20px;
     width: 100%;
     box-sizing: border-box;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add this on line 21 */
-}
-
-input[type="text"]:hover,
-input[type="email"]:hover,
-textarea:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add this on line 26 */
-}
-
-input[type="submit"] {
-  background: linear-gradient(to bottom, #4f8cff, #3461d1); /* Add this on line 33 */
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-input[type="submit"]:hover {
-  background: linear-gradient(to bottom, #3461d1, #4f8cff); /* Add this on line 41 */
-}
-
-/* Style the navigation menu */
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Style the main content */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: bold;
-  margin-top: 0;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 20px;
-}
-
-a {
-  color: #333;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"]:hover,
+  input[type="email"]:hover,
+  textarea:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="submit"] {
+    background: linear-gradient(to bottom, #4f8cff, #3461d1);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #3461d1, #4f8cff);
+  }
+  
+  /* Footer styles */
+  
+  footer {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
