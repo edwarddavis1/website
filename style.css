@@ -85,3 +85,19 @@ body {
   footer p {
     margin: 0;
   }
+
+  #accomplishments img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Set max-width of all images and iframes to 100% */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Set max-width of specific sections to 100% */
+#accomplishments, #blog, #contact {
+  max-width: 100%;
+}
