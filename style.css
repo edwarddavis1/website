@@ -6,6 +6,14 @@ body {
     line-height: 1.5;
     color: #333;
   }
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} */
   
   a {
     color: #007bff;
@@ -87,8 +95,9 @@ body {
   }
 
   #accomplishments img {
-    max-width: 100%;
+    width: auto;
     height: auto;
+    /* max-width: 800px; */
   }
 
   /* Set max-width of all images and iframes to 100% */
@@ -100,4 +109,67 @@ img, iframe {
 /* Set max-width of specific sections to 100% */
 #accomplishments, #blog, #contact {
   max-width: 100%;
+}
+
+.profile-picture {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  margin-right: 20px; /* Add this line to adjust the margin */
+}
+
+/* Default styles for all sections */
+section {
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Styles for narrow viewports */
+@media (max-width: 1000px) {
+  section {
+    width: 100%;
+  }
+}
+
+/* Styles for wider viewports */
+@media (min-width: 1001px) {
+  section {
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1000px;
+  }
+}
+
+/* Default styles for the world stage image */
+.images {
+  width: 100%;
+  height: auto;
+}
+
+/* Styles for narrow viewports */
+@media (max-width: 1000px) {
+  .images {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Styles for wider viewports */
+@media (min-width: 1001px) {
+  .images {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }

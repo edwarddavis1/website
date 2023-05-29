@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-+J+JzvJZw5zJjJ6zvZJz1WJjzRJv8v8xJQ7xJf2gJ6Y1ZzJv4yJ8J9zJZJfZQJzv5y4zJZ6e7JQzvzJzZJ4zJw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,35 +12,55 @@
     <header>
       <div class="container">
         <h1>Ed Davis</h1>
-        <img src="Ed Davis_2.jpg" alt="Profile Picture" class="profile-picture">
+        <img src="Ed Davis_2.jpg" alt="Profile Picture" class="profile-picture" width="200">
         <h2>PhD Student</h2>
         <h3>Computational Statistics and Data Science</h3>
         <h4>University of Bristol</h4>
-        <nav>
-          <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
     <main>
       <section id="about">
         <div class="container">
-          <h2>About Me</h2>
-          <p>Insert your bio here.</p>
+          <h2>Research</h2>
+          <p>My work focuses on dynamic network embedding. 
+
+            Dynamic networks encode both spatial and temporal relations between nodes, which are desirable for many applications from cyber security to neuroscience. By representing the nodes of the network as a vector space, it allows us to detect spatial and temporal patterns through clustering.
+            
+            Methods that I have developed during my PhD have been used by Microsoft and LV, and I have presented these methods at the <a href="https://ima.org.uk/17625/4th-ima-conference-on-the-mathematical-challenges-of-big-data/">Institute of Mathematics Big Data Conference</a> and the <a href="https://compass.blogs.bristol.ac.uk/calendar_event/compass-conference/">COMPASS conference</a> in 2022. 
+            
+            I am interested in progressing dynamic embedding methods and applying them to a diverse range of problems.</p>
         </div>
       </section>
-      <section id="projects">
+      <section id="papers">
         <div class="container">
-          <h2>Projects</h2>
+          <h2>Papers</h2>
           <ul>
-            <li>
-              <h3>Project 1</h3>
-              <p>Description of project 1.</p>
+            
+              <h3>Universal Stable Dynamic Graph Embedding with Robust
+                Hypothesis Testing</h3>
+              <p>In this paper we address the problem of dynamic network embedding, that is, representing
+                the nodes of a dynamic network as evolving vectors within a low-dimensional space. These
+                representations must encode the spatio-temporal structure of the network such that it can
+                be extracted through downstream tasks such as clustering. Stable dynamic embeddings
+                ensure that nodes with the same behaviour are always assigned the same spatio-temporal
+                position. We prove that any label-invariant single-graph embedding method can produce a
+                stable dynamic embedding when acting on the general unfolded adjacency matrix. As an
+                example, we demonstrate that an adaptation to the popular node2vec embedding, unfolded
+                node2vec, represents a significant improvement over previous attempts to produce dynamic
+                versions of node2vec. We additionally present a permutation test which can be used to check
+                the significance of changes detected in a dynamic embedding and use it to demonstrate that
+                embedding methods which lack stability fail to correctly recover spatio-temporal structure,
+                even in trivial cases. Finally, we apply these methods to a flight network which tracks
+                connections between airports from January 2019 to December 2021. We find that stable
+                methods can recover both the periodic nature of this network, as well as detecting the
+                correct shape of the two main COVID-19 waves that occurred in Europe.
+                Keywords: dynamic graphs, graph representation learning, hypothesis testing, spatio-
+                temporal clustering.</p> 
+                
+                <img scr="hierarchical_clustering_on_C5_data.pdf" alt="Hierarchical Clustering on C5 Data" class="images"/>
+                
               <a href="#">Link to project 1</a>
-            </li>
+            
             <li>
               <h3>Project 2</h3>
               <p>Description of project 2.</p>
@@ -55,8 +76,9 @@
       </section>
       <section id="accomplishments">
         <h2>Accomplishments</h2>
-        <img src="world_stage_final (2) (2).jpg" alt="World Stage Data Visualization">
+        <img src="world_stage.jpg" alt="World Stage Data Visualization" class="images">
       </section>
+
     <section id="blog">
     <div class="container">
         <h2>Blog</h2>
@@ -64,7 +86,7 @@
         <h3><a href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">The Importance of Stability in Dynamic Network Embedding</a></h3>
         <p>Dynamic network embedding is a powerful technique for analyzing time-varying networks, but it can be challenging to ensure that the embeddings remain stable over time. In this blog post, we explore the importance of stability in dynamic network embedding and discuss some strategies for achieving it.</p>
         <p>...</p>
-        <iframe src="https://edwarddavis1.github.io/plotly-host/"></iframe>
+        <iframe src="https://edwarddavis1.github.io/plotly-host/" width="100%" height="1000"></iframe>
         </article>
     </div>
     </section>
