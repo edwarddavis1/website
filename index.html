@@ -3,6 +3,7 @@ STILL TO FIX
 
 - Nav bar bad at small widths
 - need to add social links
+- supervisor links
 - hide some of the abstract for the paper
 - add a high-level summary of paper? (Or maybe just write a blog post about it)
 -->
@@ -28,16 +29,32 @@ STILL TO FIX
       </div>
     </header>
 
-    <div class="horizontal-bar">
-        <a href="#about">Research Outline</a>
-        <a href="#papers">Papers</a>
-        <a href="#accomplishments">Accomplishments</a>
-        <a href="#blog">Blog Posts</a>
-        <!-- <a href="#contact">Contact</a> -->
-      </div>
-      
+<header>
+  <nav>
+    <ul class="menu">
+      <li><a href="#about">Research Outline</a></li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#accomplishments">Accomplishments</a></li>
+      <li><a href="#blog">Blog Posts</a></li>
+    </ul>
+  </nav>
+</header>
+       
 
     <main>
+<section id="contact">
+  <div class="container">
+    <h2>Contact & Links</h2>
+    <ul>
+      <p>Email:</span> edward.davis[at]bristol.ac.uk</p>
+      <p>Twitter:</span> <a href="https://twitter.com/EdD8ta">EdD8ta</a></p>
+      <p>LinkedIn:</span> <a href="https://www.linkedin.com/in/edwarddavis941/">edwarddavis941</a></p>
+      <p>GitHub:</span> <a href="https://github.com/edwarddavis1">edwarddavis1</a></p>
+    </ul>
+  </div>
+</section>
+
+
       <section id="about">
         <div class="container">
           <h2>Research Outline</h2>
@@ -55,6 +72,7 @@ STILL TO FIX
             <h2>Papers</h2>            
                 <h3>Universal Stable Dynamic Graph Embedding with Robust
                     Hypothesis Testing</h3>
+                <article>
                 <p>In this paper we address the problem of dynamic network embedding, that is, representing
                     the nodes of a dynamic network as evolving vectors within a low-dimensional space. These
                     representations must encode the spatio-temporal structure of the network such that it can
@@ -73,12 +91,33 @@ STILL TO FIX
                     correct shape of the two main COVID-19 waves that occurred in Europe.
                     Keywords: dynamic graphs, graph representation learning, hypothesis testing, spatio-
                     temporal clustering.</p> 
+                </article>
                     <img src="hierarchical_clustering_on_C5_data.jpg" alt="Hierarchical Clustering on C5 Data" class="images"/>
-                    
-                <a href="#">Link to project 1</a>
-
+                    <figcaption><strong>Figure:</strong> The clustering of a flight network embedding, computed with URLSE,
+                        considering only European nodes. For reference, we plot the number of European countries
+                        with any public transport restrictions in response to COVID-19 over time (Hale et al.,
+                        2021). We see that the clusters found in the network embedding closely match the COVID-
+                        19 policy changes, which leads us to conclude that the temporal structure recovered by
+                        URLSE is correct.
+                        </figcaption>
+                <a href="#">Link to paper [coming soon]</a>
             </div> 
       </section>
+
+    </section>
+    <section id="accomplishments">
+      <div class="container">
+      <h2>Accomplishments</h2>
+      <h3>Award-Winning Data Visualisation</h3>
+      <p>Runner-up in the Jean Golding Institute's <a href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/">Beauty of Data</a> competition. This visualisation was presented at the <a href=https://www.bristol.ac.uk/golding/events/showcase/>Bristol Data and AI Showcase 2022</a>.
+          
+          This visualisation displays an embedding of a friendship network between countries on the world stage based on their alliances. </p>
+          <p>(Click image for full-size)</p>
+      <!-- <img src="world_stage.jpg" alt="World Stage Data Visualization" class="images"> -->
+      <a href="world_stage.jpg" target="_blank"><img src="world_stage.jpg" alt="World Stage Data Visualization" class="images"></a>
+      </div>
+  </section>
+
 
 
 
@@ -88,10 +127,10 @@ STILL TO FIX
         <article>
         <h3><a href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">The Importance of Stability in Dynamic Network Embedding</a></h3>
         <p>Dynamic network embedding is a powerful technique for analyzing time-varying networks, but it can be challenging to ensure that the embeddings remain stable over time. In this blog post, we explore the importance of stability in dynamic network embedding and discuss some strategies for achieving it.</p>
+    </article>
             <div class="iframe-container">
             <iframe src="https://edwarddavis1.github.io/plotly-host/" width="100%" frameborder="0"></iframe>
             </div>
-        </article>
     </div>
     <!-- </section>
       <section id="contact">

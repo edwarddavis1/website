@@ -163,7 +163,7 @@ section {
   }
 }
 
-/* Default styles for the world stage image */
+
 .horizontal-bar {
     width: 100%;
     height: auto;
@@ -184,8 +184,6 @@ section {
       margin: 0 auto;
     }
   }
-
-
   
   /* Styles for narrow viewports */
   @media (max-width: 650px) {
@@ -262,3 +260,70 @@ section {
 }
 
 
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.menu-icon {
+  display: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 100px) {
+  .menu-icon {
+    display: block;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+  }
+  .menu li {
+    margin: 10px 0;
+  }
+  .menu a {
+    display: block;
+    padding: 10px;
+  }
+  input[type="checkbox"]:checked ~ .menu {
+    display: flex;
+  }
+}
