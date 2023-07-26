@@ -43,6 +43,11 @@ STILL TO FIX
     <h2>Contact & Links</h2>
     <ul>
       <p>Email:</span> edward.davis[at]bristol.ac.uk</p>
+      <p>Office: School of Mathematics
+        University of Bristol,
+        Fry Building, GA.06
+        Woodland Road
+        Bristol, BS8 1UG.</p>
       <p>Twitter:</span> <a href="https://twitter.com/EdD8ta">EdD8ta</a></p>
       <p>LinkedIn:</span> <a href="https://www.linkedin.com/in/edwarddavis941/">edwarddavis941</a></p>
       <p>GitHub:</span> <a href="https://github.com/edwarddavis1">edwarddavis1</a></p>
@@ -70,24 +75,7 @@ STILL TO FIX
                 <h3>Universal Stable Dynamic Graph Embedding with Robust
                     Hypothesis Testing</h3>
                 <article>
-                <p>In this paper we address the problem of dynamic network embedding, that is, representing
-                    the nodes of a dynamic network as evolving vectors within a low-dimensional space. These
-                    representations must encode the spatio-temporal structure of the network such that it can
-                    be extracted through downstream tasks such as clustering. Stable dynamic embeddings
-                    ensure that nodes with the same behaviour are always assigned the same spatio-temporal
-                    position. We prove that any label-invariant single-graph embedding method can produce a
-                    stable dynamic embedding when acting on the general unfolded adjacency matrix. As an
-                    example, we demonstrate that an adaptation to the popular node2vec embedding, unfolded
-                    node2vec, represents a significant improvement over previous attempts to produce dynamic
-                    versions of node2vec. We additionally present a permutation test which can be used to check
-                    the significance of changes detected in a dynamic embedding and use it to demonstrate that
-                    embedding methods which lack stability fail to correctly recover spatio-temporal structure,
-                    even in trivial cases. Finally, we apply these methods to a flight network which tracks
-                    connections between airports from January 2019 to December 2021. We find that stable
-                    methods can recover both the periodic nature of this network, as well as detecting the
-                    correct shape of the two main COVID-19 waves that occurred in Europe.
-                    Keywords: dynamic graphs, graph representation learning, hypothesis testing, spatio-
-                    temporal clustering.</p> 
+                <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a dynamic network as evolving vectors within a low-dimensional space. While the field of single-graph embedding is wide and established, the field of dynamic graph embedding is comparatively in its infancy. In this paper, we propose that we can take a wide class of established single-graph embedding methods and use them to produce interpretable and powerful dynamic graph embeddings by simply applying them to the dilated unfolded matrix. We provide a theoretical guarantee that, regardless of embedding dimension, these <i>unfolded</i> methods will produce stable embeddings over time and space, meaning that nodes with identical latent behaviour will be exchangeable, regardless of their position in time or space.</p> 
                 </article>
                     <img src="hierarchical_clustering_on_C5_data.jpg" alt="Hierarchical Clustering on C5 Data" class="images"/>
                     <figcaption><strong>Figure:</strong> The clustering of a flight network embedding, computed with URLSE,
