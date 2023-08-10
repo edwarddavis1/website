@@ -7,6 +7,27 @@ body {
     line-height: 1.5;
     color: #333;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu button {
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.menu button:hover {
+    background: #3b1c32;
+    transition: 0.5s;
+}
 
 a {
     color: #ca054d;
@@ -246,65 +267,12 @@ section {
     }
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menu-icon {
+/* .menu-icon {
     display: none;
     color: #fff;
     font-size: 24px;
     cursor: pointer;
-}
-
-.menu {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    list-style: none;
-    margin-left: 20px;
-}
-
-.menu li:first-child {
-    margin-left: 0;
-}
-
-.menu a {
-    color: #fff;
-}
-
-@media (max-width: 100px) {
-    .menu-icon {
-        display: block;
-    }
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        padding: 10px;
-    }
-    .menu li {
-        margin: 10px 0;
-    }
-    .menu a {
-        display: block;
-        padding: 10px;
-    }
-    input[type="checkbox"]:checked ~ .menu {
-        display: flex;
-    }
-}
+} */
 
 .network-embedding-container {
     position: relative;
@@ -318,5 +286,5 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
 }
