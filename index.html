@@ -90,25 +90,27 @@
 
         <section id="papers">
             <div class="container">
-            <h2>Papers</h2>            
-                <h3>A Simple but Powerful Framework for Dynamic Graph
-Embedding</h3>
+            <h2>Papers</h2>
+            <h3><a href="https://arxiv.org/abs/2405.19230"> Valid Conformal Prediction for Dynamic GNNs</a></h3>
+            <article>
+              Graph neural networks (GNNs) are powerful black-box models which have shown impressive empirical performance. However, without any form of uncertainty quantification, it can be difficult to trust such models in high-risk scenarios. Conformal prediction aims to address this problem, however, an assumption of exchangeability is required for its validity which has limited its applicability to static graphs and transductive regimes. 
+
+              We propose to use unfolding, which allows any existing static GNN to output a dynamic graph embedding with exchangeability properties. Using this, we extend the validity of conformal prediction to dynamic GNNs in both transductive and semi-inductive regimes. We provide a theoretical guarantee of valid conformal prediction in these cases and demonstrate the empirical validity, as well as the performance gains, of unfolded GNNs against standard GNN architectures on both simulated and real datasets.
+            </article>
+              <img src="iid_sbm_ugcn_block_gcn_trans.png" alt="A dynamic embedding of i.i.d. data using UGCN and a standard GCN." class="images"/>
+              <figcaption><strong>Figure:</strong>  UGCN and block diagonal GCN representations of an i.i.d. stochastic block model after applying PCA. The models were trained with transductive masks. Block diagonal GCN appears to encode a significant change over time despite there being none. The embedding from UGCN is exchangeable over time, as would be expected.
+                        </figcaption>
+            </div>
+
+
+            <div class="container">
+                <h3><a href="https://arxiv.org/abs/2311.09251">A Simple but Powerful Framework for Dynamic Graph Embedding</a></h3>
                 <article>
                 <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a dynamic network as evolving vectors within a low-dimensional space. While the field of single-graph embedding is wide and established, the field of dynamic graph embedding is comparatively in its infancy. In this paper, we propose that we can take a wide class of established single-graph embedding methods and use them to produce interpretable and powerful dynamic graph embeddings by simply applying them to the dilated unfolded matrix. We provide a theoretical guarantee that, regardless of embedding dimension, these <i>unfolded</i> methods will produce stable embeddings over time and space, meaning that nodes with identical latent behaviour will be exchangeable, regardless of their position in time or space.</p> 
                 </article>
                     <img src="europe_and_uk_italy_URLSE.jpg" alt="1D Embedding of Flight Network" class="images"/>
                     <figcaption><strong>Figure:</strong>  A one-dimensional URLSE displaying the average temporal structure of airports in Italy, the UK and across Europe. The embedding encodes the two main European waves of COVID-19 as well as an annual periodic structure before and after the pandemic. We also see that the pandemic hit Italy slightly before the UK and the rest of Europe.
                         </figcaption>
-
-                    <!-- <img src="hierarchical_clustering_on_C5_data.jpg" alt="Hierarchical Clustering on C5 Data" class="images"/>
-                    <figcaption><strong>Figure:</strong> The clustering of a flight network embedding, computed with URLSE,
-                        considering only European nodes. For reference, we plot the number of European countries
-                        with any public transport restrictions in response to COVID-19 over time (Hale et al.,
-                        2021). We see that the clusters found in the network embedding closely match the COVID-
-                        19 policy changes, which leads us to conclude that the temporal structure recovered by
-                        URLSE is correct.
-                        </figcaption> -->
-                <a href="https://arxiv.org/abs/2311.09251">Preprint link</a>
             </div> 
       </section>
 
