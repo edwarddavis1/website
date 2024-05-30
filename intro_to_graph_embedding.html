@@ -25,12 +25,18 @@
     <div class="container">
         <h2>An Introduction to Graph Embedding</h2>
 
-        <p>You may not realise it, but graphs are everywhere. The neuron interactions in your brain provide you with conscious thought [ref], and protein interactions make up your immune system [ref]. The molecules that you interact with look [ref] and even smell [ref] in a specific way due to the structure of their atomic composition and the language you use to communicate holds meaning due to specific orderings and contexts of words [ref]. While each of these complex systems may seem to exist in wildy different domains, they can all be represented as a graph.</p> 
+        <p>You may not realise it, but graphs are everywhere. The neuron interactions in your brain provide you with conscious thought [ref], and protein interactions make up your immune system [ref]. The molecules that you interact with look [ref] and even smell [ref] in a specific way due to the structure of their atoms and the language you use to communicate holds meaning due to specific orderings and contexts of words [ref]. While each of these complex systems may seem to exist in wildy different domains, they can all be represented as a graph.</p> 
 
         <p>Graph embedding gives us a way of representing these large and complex systems in a concise space, allowing us to visualise the structure they hold as well as apply downstream machine learning techniques to learn about how these systems work.</p>
 
+        <h3>What is a graph?</h3>
+
+        
+
         <h3>Spectral Embedding</h3>
-        <p>Spectral embedding is one of the simplest graph embedding techniques, posessing both speed and theoretical tractability.</p>
+        <p>Spectral embedding is one of the simplest graph embedding techniques, posessing both speed and theoretical tractability. As a light-hearted example, Figure 1 shows the application of a spectral embedding to an enmity network (good guy - bad guy interactions) of Harry Potter characters in the books. On the left we see a conventional plot of the network, and on the right we have a spectral embedding. By hovering over nodes in the network, you can see that each node has been assigned a position in embedding space on the right.</p>
+
+
 
         <!-- <p>$$\sum_{i=1}^n i = \frac{n(n+1)}{2}$$</p> -->
 
@@ -40,14 +46,28 @@
         </figure>
       </div>
       <center>
-      <p><strong>Figure:</strong> (Left) An emnity network of Harry Potter characters. (Right) A spectral embedding of the network.</p>
+      <p><strong>Figure 1:</strong> (Left) An emnity network of Harry Potter characters. (Right) A spectral embedding of the network.</p>
       </center>
 
+        <p>In its vanilla form, spectral embedding often features a ray-like structure. The further from the origin a node is, the higher its <em>degree</em>, that is, how popular the node is. For example, the node with the highest degree is Lord Voldemort, who has enounters with almost all the good characters. By switching the colour to <em>Good/Bad</em>, we also see another feature of spectral embedding. There are two "rays" in the specrtal embedding, and this represents the two "teams" in the book - the good guys and the bad guys. Looking also at the house assignment of each character, we see that the vast majority of good characters are from Gryffindor. Note that these two features: node degree and node affiliation, are not immediately visible in the conventional network plot.</p>
+
+        <p>So how does spectral embedding work? The first step is to construct a matrix representation of the network. This is done by creating a matrix $A$ where $A_{ij}$ is 1 if there is an edge between nodes $i$ and $j$, and 0 otherwise. This is known as the <em>adjacency matrix</em>. For the Harry Potter network, this matrix looks like:</p>
 
       
         <!-- <div class="network-embedding-container">
         <iframe src="https://edwarddavis1.github.io/network_to_embedding_figure/index.html" width="100%"frameborder="0"></iframe>
         </div> -->
+
+
+        <h3>Data Scientist's Choice - node2vec</h3>
+      <div class="network-embedding-container">
+        <figure>
+          <iframe src="https://edwarddavis1.github.io/random_walk_embedding_figure/index.html" width="100%" frameborder="0"></iframe>
+        </figure>
+      </div>
+      <center>
+      <p><strong>Figure 1:</strong> (Left) An emnity network of Harry Potter characters. (Right) A spectral embedding of the network.</p>
+      </center>
 
     </div>
 
