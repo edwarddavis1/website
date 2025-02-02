@@ -5,24 +5,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-+J+JzvJZw5zJjJ6zvZJz1WJjzRJv8v8xJQ7xJf2gJ6Y1ZzJv4yJ8J9zJZJfZQJzv5y4zJZ6e7JQzvzJzZJ4zJw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="new_style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ed Davis</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="new_style.css">
 </head>
 
 <body>
   <header>
     <div>
-      <h1>Ed Davis</h1>
+      <h1 style="color: #fff;">Ed Davis</h1>
       <img src="Ed Davis_2.jpg" alt="Profile Picture" class="profile-picture" width="200">
-      <h2>PhD Student</h2>
-      <h3>Computational Statistics and Data Science</h3>
-      <h4>University of Bristol</h4>
+      <h2 style="color: #fff;">PhD Student</h2>
+      <h3 style="color: #fff;">Computational Statistics and Data Science</h3>
+      <h4 style="color: #fff;">University of Bristol</h4>
     </div>
   </header>
-
   <!-- <header>
   <nav>
     <ul class="menu">
@@ -49,22 +48,42 @@
     <section id="contact">
       <div class="container">
         <h2>Contact & Links</h2>
-        <ul>
-          <p>Email:</span> edward.davis[at]bristol.ac.uk</p>
-          <p>Office: School of Mathematics
-            University of Bristol,
-            Fry Building, GA.06
-            Woodland Road
-            Bristol, BS8 1UG.</p>
-          <p>Twitter:</span> <a href="https://twitter.com/EdD8ta">EdD8ta</a></p>
-          <p>LinkedIn:</span> <a href="https://www.linkedin.com/in/edwarddavis941/">edwarddavis941</a></p>
-          <p>GitHub:</span> <a href="https://github.com/edwarddavis1">edwarddavis1</a></p>
-          <p>PhD supervised by <a href="https://people.maths.bris.ac.uk/~pr12244/">Prof. Patrick Rubin-Delanchy</a> and
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:edward.davis[at]bristol.ac.uk">edward.davis[at]bristol.ac.uk</a></li>
+          <li>GitHub: <a href="https://github.com/edwarddavis1">edwarddavis1</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/edwarddavis941/">edwarddavis941</a></li>
+          <li>PhD supervised by <a href="https://people.maths.bris.ac.uk/~pr12244/">Prof. Patrick Rubin-Delanchy</a> and
             <a href="https://people.maths.bris.ac.uk/~madjl/">Dr Daniel Lawson</a>.
-          </p>
+          </li>
         </ul>
       </div>
     </section>
+    
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    
+      .contact-list {
+        list-style-type: none;
+        padding: 0;
+      }
+    
+      .contact-list li {
+        margin-bottom: 10px;
+      }
+    
+      .contact-list a {
+        color: #007bff;
+        text-decoration: none;
+      }
+    
+      .contact-list a:hover {
+        text-decoration: underline;
+      }
+    </style>
 
 
 
@@ -99,20 +118,32 @@
           other fields of maths, including <a href="https://arxiv.org/abs/2405.19230"> conformal prediction</a> and
           <a href="https://arxiv.org/abs/2410.20895">the bootstrap</a>.
         </p>
-        <!-- <p>My work focuses on dynamic network embedding. 
 
-            Dynamic networks encode both spatial and temporal relations between nodes, which are desirable for many applications from cyber security to neuroscience. By representing the nodes of the network as a vector space, it allows us to detect spatial and temporal patterns through clustering.
-            
-            Methods that I have developed during my PhD have been used by Microsoft and LV, and I have presented these methods at the <a href="https://ima.org.uk/17625/4th-ima-conference-on-the-mathematical-challenges-of-big-data/">Institute of Mathematics Big Data Conference</a> and the <a href="https://compass.blogs.bristol.ac.uk/calendar_event/compass-conference/">COMPASS conference</a> in 2022. 
-            
-            I am interested in progressing dynamic embedding methods and applying them to a diverse range of problems.</p> -->
       </div>
 
       <div class="container">
-        <div class="network-embedding-container">
-          <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html" width="100%"
-            frameborder="0"></iframe>
+        <h2>What is a graph embedding?</h2>
+        <p>See the graphic below for a visual explanation of a dynamic graph embedding. On the left, we see a Harry Potter friendship network plotted in the conventional way. On the right, we see a corresponding graph embedding where each node is represented in a 2D space (hover over each node to see the correspondence). In this case, the graph embedding is able to separate the good and the bad characters in the Harry Potter world.</p>
+
+
+        <div class="network-embedding-container iframe-container">
+          <!-- <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html"
+            frameborder="0"></iframe> -->
+        <figure>
+          <iframe src="https://edwarddavis1.github.io/harry_potter_vis/index.html" width="100%" frameborder="0"></iframe>
+        </figure>
         </div>
+
+        <p>My work mainly focuses on how to best compute a dynamic graph embedding. In the below example, a network is changing its connections over time. In the corresponding dynamic embedding, we are able to see how this structure changes over time - click "Play" to see a dynamic graph embedding in action! To find out more about this intersting field, see <a href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">this</a> blog post, or some of my <a href="#papers">papers</a>. </p>
+
+        <div class="network-embedding-container iframe-container">
+        <figure>
+          <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html" width="100%" frameborder="0"></iframe>
+        </figure>
+        </div>
+
+
+        
       </div>
     </section>
 
@@ -125,29 +156,6 @@
 
       <div class="container">
         <h2>Papers</h2>
-        <h3><a href="https://arxiv.org/abs/2311.09251">A Simple but Powerful Framework for Dynamic Graph Embedding</a>
-        </h3>
-        <article>
-          <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a
-            dynamic network as evolving vectors within a low-dimensional space. While the field of single-graph
-            embedding is wide and established, the field of dynamic graph embedding is comparatively in its infancy. In
-            this paper, we propose that we can take a wide class of established single-graph embedding methods and use
-            them to produce interpretable and powerful dynamic graph embeddings by simply applying them to the dilated
-            unfolded matrix. We provide a theoretical guarantee that, regardless of embedding dimension, these
-            <i>unfolded</i> methods will produce stable embeddings over time and space, meaning that nodes with
-            identical latent behaviour will be exchangeable, regardless of their position in time or space.
-          </p>
-        </article>
-        <img src="europe_and_uk_italy_URLSE.jpg" alt="1D Embedding of Flight Network" class="images" />
-        <figcaption><strong>Figure:</strong> A one-dimensional URLSE displaying the average temporal structure of
-          airports in Italy, the UK and across Europe. The embedding encodes the two main European waves of COVID-19 as
-          well as an annual periodic structure before and after the pandemic. We also see that the pandemic hit Italy
-          slightly before the UK and the rest of Europe.
-        </figcaption>
-      </div>
-
-
-      <div class="container">
         <h3><a href="https://arxiv.org/abs/2405.19230"> Valid Conformal Prediction for Dynamic GNNs (Accepted, ICLR)</a>
         </h3>
         <article>
@@ -171,6 +179,31 @@
         </figcaption>
       </div>
 
+
+
+
+
+      <div class="container">
+        <h3><a href="https://arxiv.org/abs/2311.09251">A Simple but Powerful Framework for Dynamic Graph Embedding</a>
+        </h3>
+        <article>
+          <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a
+            dynamic network as evolving vectors within a low-dimensional space. While the field of single-graph
+            embedding is wide and established, the field of dynamic graph embedding is comparatively in its infancy. In
+            this paper, we propose that we can take a wide class of established single-graph embedding methods and use
+            them to produce interpretable and powerful dynamic graph embeddings by simply applying them to the dilated
+            unfolded matrix. We provide a theoretical guarantee that, regardless of embedding dimension, these
+            <i>unfolded</i> methods will produce stable embeddings over time and space, meaning that nodes with
+            identical latent behaviour will be exchangeable, regardless of their position in time or space.
+          </p>
+        </article>
+        <img src="europe_and_uk_italy_URLSE.jpg" alt="1D Embedding of Flight Network" class="images" />
+        <figcaption><strong>Figure:</strong> A one-dimensional URLSE displaying the average temporal structure of
+          airports in Italy, the UK and across Europe. The embedding encodes the two main European waves of COVID-19 as
+          well as an annual periodic structure before and after the pandemic. We also see that the pandemic hit Italy
+          slightly before the UK and the rest of Europe.
+        </figcaption>
+      </div>
 
 
 
