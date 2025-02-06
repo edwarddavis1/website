@@ -10,8 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ed Davis</title>
   <link rel="stylesheet" href="new_style.css">
-    <!-- Include Prism.js CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+  <!-- Include Prism.js CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -60,28 +60,28 @@
         </ul>
       </div>
     </section>
-    
+
     <style>
       .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
       }
-    
+
       .contact-list {
         list-style-type: none;
         padding: 0;
       }
-    
+
       .contact-list li {
         margin-bottom: 10px;
       }
-    
+
       .contact-list a {
         color: #007bff;
         text-decoration: none;
       }
-    
+
       .contact-list a:hover {
         text-decoration: underline;
       }
@@ -125,27 +125,38 @@
 
       <div class="container">
         <h2>What is a graph embedding?</h2>
-        <p>See the graphic below for a visual explanation of a graph embedding. On the left, we see a Harry Potter emnity network (adversarial interactions) plotted in the conventional way. On the right, we see a corresponding graph embedding where each node is represented in a 2D space (hover over each node to see the correspondence). In this case, the graph embedding is able to separate the good and the bad characters in the Harry Potter world.</p>
+        <p>See the graphic below for a visual explanation of a graph embedding. On the left, we see a Harry Potter
+          emnity network (adversarial interactions) plotted in the conventional way. On the right, we see a
+          corresponding graph embedding where each node is represented in a 2D space (hover over each node to see the
+          correspondence). In this case, the graph embedding is able to separate the good and the bad characters in the
+          Harry Potter world.</p>
 
 
         <div class="network-embedding-container iframe-container">
           <!-- <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html"
             frameborder="0"></iframe> -->
-        <figure>
-          <iframe src="https://edwarddavis1.github.io/harry_potter_vis/index.html" width="100%" frameborder="0"></iframe>
-        </figure>
+          <figure>
+            <iframe src="https://edwarddavis1.github.io/harry_potter_vis/index.html" width="100%"
+              frameborder="0"></iframe>
+          </figure>
         </div>
 
-        <p>My work mainly focuses on how to best compute a dynamic graph embedding. In the below example, a network is changing its connections over time. In the corresponding dynamic embedding, we are able to see how this structure changes over time - click "Play" to see a dynamic graph embedding in action! To find out more about this intersting field, see <a href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">this</a> blog post, or some of my <a href="#papers">papers</a>. </p>
+        <p>My work mainly focuses on how to best compute a dynamic graph embedding. In the below example, a network is
+          changing its connections over time. In the corresponding dynamic embedding, we are able to see how this
+          structure changes over time - click "Play" to see a dynamic graph embedding in action! To find out more about
+          this intersting field, see <a
+            href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">this</a> blog post, or
+          some of my <a href="#papers">papers</a>. </p>
 
         <div class="network-embedding-container iframe-container">
-        <figure>
-          <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html" width="100%" frameborder="0"></iframe>
-        </figure>
+          <figure>
+            <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html" width="100%"
+              frameborder="0"></iframe>
+          </figure>
         </div>
 
 
-        
+
       </div>
     </section>
 
@@ -187,7 +198,7 @@
 
       <div class="container">
         <h3><a href="https://arxiv.org/abs/2311.09251">A Simple and Powerful Framework for
-Stable Dynamic Network Embedding</a>
+            Stable Dynamic Network Embedding</a>
         </h3>
         <article>
           <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a
@@ -241,17 +252,18 @@ Stable Dynamic Network Embedding</a>
         <h2>Other Work</h2>
 
         <h3>
-          <img src="pyemb_logo.png" alt="pyemb logo" style="vertical-align: middle; height: 1em;">
-          pyemb - EDA of embeddings in Python
+          <img src="pyemb_logo.png" alt="pyemb logo" style="vertical-align: middle; height: 3em;">
+          <a href="https://github.com/pyemb/pyemb">pyemb - EDA of embeddings in Python</a>
         </h3>
+        <p>A Python package for exploring complex datasets including high-dimensional data, relational databases and
+          networks.</p>
 
-        <p>A Python package for exploring complex datasets including high-dimensional data, relational databases and networks.</p>
+        <p>For example, the below code can quickly compute a <a href="https://arxiv.org/abs/2311.09251">URLSE dynamic
+            embedding</a> and then produce an interactive plot of the embedding over time.</p>
 
-        <p>For example, the below code can quickly compute a <a href="https://arxiv.org/abs/2311.09251">URLSE dynamic embedding</a> and then produce an interactive plot of the embedding over time.</p>
-        
 
         <!-- <code>pip install pyemb</code> -->
-    <pre class="code-background"><code class="language-python">import pyemb as eb
+        <pre class="code-background"><code class="language-python">import pyemb as eb
 
 # Embed the graph using unfolded regularised Laplacian spectral embedding
 d = 10
@@ -260,11 +272,12 @@ URLSE_emb = eb.dyn_embed(As, d=d, method="URLSE")
 # Quick interactive + animated plot of the embedding
 fig = eb.quick_plot(URLSE_emb, n, T, node_labels)</code></pre>
 
-    <div class="network-embedding-container iframe-container">
-      <figure>
-        <iframe src="https://edwarddavis1.github.io/example_pyemb_quick_plot/" width="100%" frameborder="0"></iframe>
-      </figure>
-    </div>
+        <div class="network-embedding-container iframe-container">
+          <figure>
+            <iframe src="https://edwarddavis1.github.io/example_pyemb_quick_plot/" width="100%"
+              frameborder="0"></iframe>
+          </figure>
+        </div>
 
 
 
