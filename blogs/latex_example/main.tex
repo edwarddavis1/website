@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{Uniform Distribution of P-values under the Null Hypothesis}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+When performing hypothesis testing, p-values are used to determine the significance of the test results. Under the null hypothesis, if the test statistics are exchangeable, the p-values are uniformly distributed on the interval \([0, 1]\).
+
+\section{Exchangeable Test Statistics}
+
+Exchangeability means that the joint distribution of the test statistics does not change when the indices are permuted. Formally, a sequence of random variables \(T_1, T_2, \ldots, T_n\) is exchangeable if for any permutation \(\pi\) of \(\{1, 2, \ldots, n\}\), the joint distribution of \((T_1, T_2, \ldots, T_n)\) is the same as the joint distribution of \((T_{\pi(1)}, T_{\pi(2)}, \ldots, T_{\pi(n)})\). Mathematically, this can be expressed as:
+
+\[
+P(T_1 \leq t_1, T_2 \leq t_2, \ldots, T_n \leq t_n) = P(T_{\pi(1)} \leq t_1, T_{\pi(2)} \leq t_2, \ldots, T_{\pi(n)} \leq t_n)
+\]
+
+for any permutation \(\pi\) and any \(t_1, t_2, \ldots, t_n \in \mathbb{R}\).
+
+\section{P-values under the Null Hypothesis}
+
+The p-value is the probability of observing a test statistic as extreme as, or more extreme than, the one observed, assuming the null hypothesis is true. Mathematically, for a test statistic \(T\) and observed value \(t\), the p-value is given by:
+
+\[
+p = P(T \geq t \mid H_0)
+\]
+
+Under the null hypothesis, if the test statistics are exchangeable, the p-values should follow a uniform distribution on \([0, 1]\). This is because the p-value is a transformation of the test statistic that preserves the uniformity under the null hypothesis.
+
+\section{Proof}
+
+Let \(T\) be a test statistic under the null hypothesis \(H_0\), and let \(F_T\) be the cumulative distribution function (CDF) of \(T\) under \(H_0\). The p-value is defined as:
+
+\[
+p = 1 - F_T(t)
+\]
+
+where \(t\) is the observed value of the test statistic. Since \(F_T\) is a CDF, it maps the test statistic to a value in the interval \([0, 1]\). Under the null hypothesis, \(F_T(T)\) is uniformly distributed on \([0, 1]\). Therefore, the p-value \(p = 1 - F_T(T)\) is also uniformly distributed on \([0, 1]\).
+
+To see why \(F_T(T)\) is uniformly distributed, consider the probability integral transform. If \(T\) is a continuous random variable with CDF \(F_T\), then the random variable \(U = F_T(T)\) is uniformly distributed on \([0, 1]\). This follows from the fact that for any \(u \in [0, 1]\),
+
+\[
+P(U \leq u) = P(F_T(T) \leq u) = P(T \leq F_T^{-1}(u)) = F_T(F_T^{-1}(u)) = u
+\]
+
+Thus, \(U\) is uniformly distributed on \([0, 1]\). Since \(p = 1 - U\), it follows that \(p\) is also uniformly distributed on \([0, 1]\).
+
+\section{Conclusion}
+
+Under the null hypothesis, if the test statistics are exchangeable, the p-values are uniformly distributed on the interval \([0, 1]\). This property is fundamental in hypothesis testing and ensures that the p-values provide a valid measure of statistical significance.
+
+\section{Example}
+
+To illustrate this, consider generating a sequence of p-values from a uniform distribution and plotting their histogram:
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Number of p-values to generate
+n_pvalues = 1000
+
+# Generate p-values from a uniform distribution
+p_values = np.random.uniform(0, 1, n_pvalues)
+
+# Plot the histogram of p-values
+plt.hist(p_values, bins=20, edgecolor='k', alpha=0.7)
+plt.xlabel('P-value')
+plt.ylabel('Frequency')
+plt.title('Histogram of P-values under the Null Hypothesis')
+plt.show()
+\end{verbatim}
+
+The histogram should be approximately flat, indicating a uniform distribution of p-values under the null hypothesis.
+
+\end{document}

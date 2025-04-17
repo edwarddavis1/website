@@ -4,9 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Ed Davis</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../../style.css" />
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
     </head>
     <body>
 <header>
@@ -23,17 +24,18 @@
         <main>
     <section id="blog">
     <div class="container">
-        <h2>An Introduction to Graph Embedding</h2>
+        <h2>An Interactive Introduction to Graph Embedding</h2>
 
-        <p>You may not realise it, but graphs are everywhere. The neuron interactions in your brain provide you with conscious thought [ref], and protein interactions make up your immune system [ref]. The molecules that you interact with look [ref] and even smell [ref] in a specific way due to the structure of their atoms and the language you use to communicate holds meaning due to specific orderings and contexts of words [ref]. While each of these complex systems may seem to exist in wildy different domains, they can all be represented as a graph.</p> 
+        <p>You may not realise it, but graphs are everywhere. The neuron interactions in your brain provide you with conscious thought, and protein interactions make up your immune system. The molecules that you interact with look and even smell in a specific way due to the structure of their atoms and the language you use to communicate holds meaning due to specific orderings and contexts of words. While each of these complex systems may seem to exist in wildy different domains, they can all be represented as a graph.</p> 
 
         <p>Graph embedding gives us a way of representing these large and complex systems in a concise space, allowing us to visualise the structure they hold as well as apply downstream machine learning techniques to learn about how these systems work.</p>
 
-        <h3>What is a graph?</h3>
+        <h3>What is a Graph?</h3>
 
         
+        <h3>Example Graph Embedding Methods</h3>
 
-        <h3>Spectral Embedding</h3>
+        <h4>Spectral Embedding</h4>
         <p>Spectral embedding is one of the simplest graph embedding techniques, posessing both speed and theoretical tractability. As a light-hearted example, Figure 1 shows the application of a spectral embedding to an enmity network (good guy - bad guy interactions) of Harry Potter characters in the books. On the left we see a conventional plot of the network, and on the right we have a spectral embedding. By hovering over nodes in the network, you can see that each node has been assigned a position in embedding space on the right.</p>
 
 
@@ -59,7 +61,7 @@
         </div> -->
 
 
-        <h3>Data Scientist's Choice - node2vec</h3>
+        <h4>Data Scientist's Choice - node2vec</h4>
       <div class="network-embedding-container">
         <figure>
           <iframe src="https://edwarddavis1.github.io/random_walk_embedding_figure/index.html" width="100%" frameborder="0"></iframe>
