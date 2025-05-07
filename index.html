@@ -189,7 +189,7 @@
 
       <div class="container">
         <h3><a href="https://arxiv.org/abs/2311.09251">A Simple and Powerful Framework for
-            Stable Dynamic Network Embedding (Corrections, JMLR)</a>
+            Stable Dynamic Network Embedding (Corrections, JMLR 2024)</a>
         </h3>
         <article>
           <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a
@@ -241,6 +241,51 @@
     <section id="projects">
       <div class="container">
         <h2>Projects<h2>
+
+
+          <h3>
+          <img src="ugnn_logo.png" alt="ugnn logo" style="vertical-align: middle; height: 3em;">
+          <a href="https://github.com/edwarddavis1/ugnn">UGNN - The Unfolded Graph Neural Networks package</a>
+        </h3>
+        <p>A PyTorch implementation of the <a href="https://arxiv.org/abs/2405.19230">unfolded graph neural network (UGNN)</a>, a powerful and interpretable model for multi-network prediction.</p>
+
+        <p>The model has a theoretical guarantee of valid conformal prediction when predicting into the future on many datasets. Conformal prediction allows for a range of predictions to be output from a single model for the purpose of uncertainty quantification, no matter if the model is a black-box or not. Below is an example of conformal node prediction, which is valid under a UGNN.</p>
+
+        <pre class="code-background"><code class="language-python"># UGNN model output
+output = best_model(unf_network.x, unf_network.edge_index, unf_network.edge_weight)
+
+# Apply conformal prediction (for uncertainty quantification)
+all_pred_sets = get_prediction_sets(
+    output, unf_network, calib_mask, test_mask, score_function="APS", alpha=0.1
+)
+
+# Look at the prediction sets for 10 random nodes
+for calib_node_idx in np.random.randint(len(all_pred_sets), size=10):
+    node_pred_set = all_pred_sets[calib_node_idx]
+    node_idx = np.where(calib_mask == 1)[0][calib_node_idx]
+    possible_labels_for_node = [
+        str(all_labels[pred]) for pred in np.where(node_pred_set == 1)[0]
+    ]
+    print(
+        f"Node {node_idx} (True label {str(all_labels[unf_network.y[node_idx]])}): {possible_labels_for_node}"
+    )
+        </code></pre>
+
+        <pre class="code-background"><code>Node 4352 (True label Teachers): ['1A', '1B', '2A', '2B', '3A']
+Node 3657 (True label 1B): ['1A']
+Node 4162 (True label 2A): ['1B', '2A', '2B']
+Node 3492 (True label 3A): ['1A', '1B', '2A', '3A', '3B']
+Node 3675 (True label 1B): ['1A', '1B', '2A']
+Node 3095 (True label 5A): ['4A', '4B', '5B']
+Node 3097 (True label 5A): ['4A', '5A']
+Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']
+Node 2941 (True label 1B): ['1A', '1B', '4A']
+Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']
+        </code></pre>
+
+        </h3>
+
+
 
         <h3>
           <img src="pyemb_logo.png" alt="pyemb logo" style="vertical-align: middle; height: 3em;">
