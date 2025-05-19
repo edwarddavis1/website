@@ -89,7 +89,7 @@ nav {
 /* Main Content */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 20px;
     background: #fff;
     border-radius: 12px;
@@ -97,7 +97,7 @@ nav {
 }
 
 section {
-    padding: 80px 0;
+    padding: 10px;
 }
 
 .profile-picture {
