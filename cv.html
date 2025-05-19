@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ed Davis - CV</title>
+        <link rel="stylesheet" href="new_style.css" />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            header {
+                background-color: #333;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+
+            h1 {
+                color: #fff;
+            }
+
+            h2,
+            h3 {
+                color: #007bff;
+            }
+
+            ul {
+                list-style-type: disc; /* Add bullet points */
+                padding-left: 20px; /* Add indentation for bullets */
+            }
+
+            .skills-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px; /* Add spacing between skill boxes */
+                padding: 0; /* Remove padding from the list */
+                list-style: none; /* Remove bullet points */
+            }
+
+            .skills-list li {
+                background: #f4f4f4;
+                margin: 0; /* Remove margin */
+                padding: 5px; /* Reduce padding */
+                border-radius: 5px;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                text-align: center; /* Center-align text */
+                flex: 1 1 calc(15% - 10px); /* Reduce width for smaller boxes */
+                max-width: calc(15% - 10px); /* Ensure consistent width */
+                font-size: 0.9em; /* Reduce font size */
+            }
+
+            .projects img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .date {
+                font-weight: bold;
+                color: #555;
+                background-color: #f0f0f0;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-size: 0.9em;
+                float: right;
+                margin-left: 0;
+            }
+
+            a > .date {
+                font-size: inherit;
+                font-weight: normal;
+                background-color: transparent;
+                padding: 0;
+                border-radius: 0;
+                float: none;
+                color: inherit;
+            }
+
+            @media print {
+                header,
+                footer,
+                nav {
+                    display: none; /* Hide unnecessary elements for printing */
+                }
+                .container {
+                    margin: 0;
+                    padding: 10px;
+                }
+            }
+
+            h2 {
+                border-bottom: 2px solid #007bff; /* Add underline to section headers */
+                padding-bottom: 5px;
+            }
+
+            .timeline {
+                position: relative;
+                padding-left: 40px;
+                margin-bottom: 20px;
+            }
+
+            .timeline::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 20px;
+                width: 2px;
+                height: 100%;
+                background: #007bff;
+            }
+
+            .timeline-item {
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 10px;
+                width: 10px;
+                height: 10px;
+                background: #007bff;
+                border-radius: 50%;
+            }
+
+            footer {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 0.9em;
+                color: #555;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <h1>Ed Davis</h1>
+                <p>PhD graduate in Computational Statistics and Data Science</p>
+            </header>
+
+            <section class="section" id="summary">
+                <h2>Summary</h2>
+                <p>
+                    PhD graduate in Computational Statistics and Data Science
+                    with a strong track record of impactful research (ICLR, UAI)
+                    and real-world applications. Experienced in Python, machine
+                    learning, and geometric deep learning, with successful
+                    collaborations across academia and industry (LV=, NHS, Smith
+                    Institute). A published author, open-source contributor, and
+                    award-winning data visualiser.
+                </p>
+            </section>
+
+            <section class="section" id="education">
+                <h2>Education</h2>
+                <h3>University of Bristol</h3>
+                <h4>
+                    <strong
+                        >PhD in Computational Statistics and Data
+                        Science</strong
+                    >
+                    <span class="date">(09/2020 - 12/2024)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Author of three academic papers detailing novel
+                        techniques in geometric deep learning, graph machine
+                        learning, and uncertainty quantification.
+                    </li>
+                    <li>
+                        Created the unfolded graph neural network (UGNN),
+                        implemented using PyTorch, showing significant
+                        improvements in accuracy and uncertainty quantification.
+                    </li>
+                    <li>
+                        Initiated and led a University seminar series,
+                        organising 30 talks over three years.
+                    </li>
+                    <li>
+                        Guest lecturer for the master’s level Anomaly Detection
+                        course.
+                    </li>
+                    <li>
+                        Applied academic research in an industrial setting with
+                        LV= Insurance.
+                    </li>
+                </ul>
+
+                <h3>University of Manchester</h3>
+                <h4>
+                    <strong
+                        >Master’s Degree in Physics: First Class with
+                        Honours</strong
+                    >
+                    <span class="date">(09/2016 - 06/2020)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Developed an automatic DJ system leveraging music
+                        information retrieval algorithms.
+                    </li>
+                    <li>
+                        Partnered with a production company to automate video
+                        editing processes.
+                    </li>
+                    <li>
+                        Entered with the Physics Entrance Scholarship for
+                        outstanding A-levels.
+                    </li>
+                </ul>
+
+                <h3>Greenhead College</h3>
+                <h4>
+                    <strong>A-levels</strong>
+                    <span class="date">(09/2014 - 06/2016)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Mathematics (A*), Further Mathematics (A*), Physics
+                        (A*), Extended Project Qualification (A*).
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="experience">
+                <h2>Experience</h2>
+                <h3>Southmead Hospital</h3>
+                <h4>
+                    <strong>Honorary Research Student</strong>
+                    <span class="date">(08/2024 - 10/2024)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Developed a machine learning model to predict cerebral
+                        vasospasm in ICU patients, achieving an AUC of 0.77.
+                    </li>
+                    <li>
+                        Implemented SQL and Python pipelines to clean and
+                        process hospital data.
+                    </li>
+                    <li>
+                        Coordinated collaboration between doctors and university
+                        researchers.
+                    </li>
+                </ul>
+
+                <h3>Smith Institute</h3>
+                <h4>
+                    <strong>Research Intern</strong>
+                    <span class="date">(02/2024 - 03/2024)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Co-authored a research document on network resilience
+                        with biological applications.
+                    </li>
+                    <li>
+                        Presented research findings to non-specialists using
+                        storytelling and data visualisation techniques.
+                    </li>
+                </ul>
+
+                <h3>University of Bristol</h3>
+                <h4>
+                    <strong
+                        >Tutor: Introduction to Coding and Data Analysis</strong
+                    >
+                    <span class="date">(09/2023 - 05/2024)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Taught algorithmic thinking to undergraduate students.
+                    </li>
+                </ul>
+
+                <h3>University of Bristol</h3>
+                <h4>
+                    <strong>Lab Assistant: Mathematical Programming</strong>
+                    <span class="date">(01/2023 - 05/2023)</span>
+                </h4>
+                <ul>
+                    <li>
+                        Provided hands-on instruction to help students build
+                        foundational Python knowledge.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="projects">
+                <h2>Projects</h2>
+                <span class="date">(04/2025 – Ongoing)</span>
+                <h3>
+                    <a href="https://github.com/edwarddavis1/ugnn"
+                        >UGNN: The Unfolded Graph Neural Networks package</a
+                    >
+                </h3>
+                <ul>
+                    <li>
+                        Designed and implemented a PyTorch-based package for
+                        UGNN.
+                    </li>
+                    <li>
+                        Integrated automated testing and CI/CD pipelines for
+                        robustness.
+                    </li>
+                </ul>
+
+                <span class="date">(08/2024 – Ongoing)</span>
+                <h3>
+                    <a href="https://github.com/pyemb/pyemb"
+                        >pyemb: EDA of embeddings in Python</a
+                    >
+                </h3>
+                <ul>
+                    <li>
+                        Collaborated to develop pyemb, a Python package for
+                        exploratory data analysis of relational data.
+                    </li>
+                    <li>
+                        Implemented multi-layer network embedding algorithms,
+                        speeding up initial implementations by up to 80x.
+                    </li>
+                </ul>
+
+                <span class="date">(04/2022)</span>
+                <h3>LV= Data Hackathon: Modelling Air Pollution over Madrid</h3>
+                <ul>
+                    <li>
+                        Won most innovative solution for representation learning
+                        to assign monitoring stations a position in space.
+                    </li>
+                </ul>
+
+                <span class="date">(06/2022)</span>
+                <h3>
+                    <a href="world_stage.jpg" target="_blank"
+                        >World Stage Visualization</a
+                    >
+                </h3>
+                <ul>
+                    <li>
+                        Award-winning data visualization showcasing a friendship
+                        network between countries based on alliances.
+                    </li>
+                    <li>
+                        Runner-up in the Jean Golding Institute's
+                        <a
+                            href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/"
+                            >Beauty of Data</a
+                        >
+                        competition.
+                    </li>
+                    <li>
+                        Presented at the
+                        <a
+                            href="https://www.bristol.ac.uk/golding/events/showcase"
+                            >Bristol Data and AI Showcase 2022</a
+                        >.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="skills">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>C++</li>
+                    <li>SQL</li>
+                    <li>JavaScript</li>
+                    <li>PyTorch</li>
+                    <li>Scikit-learn</li>
+                    <li>Scipy</li>
+                    <li>Networkx</li>
+                    <li>Numpy</li>
+                    <li>Pandas</li>
+                    <li>Numba</li>
+                    <li>GitHub</li>
+                    <li>CI/CD</li>
+                    <li>Pytest</li>
+                    <li>Linux/Unix</li>
+                    <li>LaTeX</li>
+                    <li>Bash</li>
+                    <li>Adobe Photoshop</li>
+                    <li>Microsoft Office</li>
+                </ul>
+            </section>
+
+            <section class="section" id="papers">
+                <h2>Papers</h2>
+                <ul>
+                    <li>
+                        <a href="https://arxiv.org/abs/2405.19230"
+                            >ICLR 2025: Valid Conformal Prediction for Dynamic
+                            GNNs</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://arxiv.org/abs/2311.09251"
+                            >Corrections, JMLR 2024: A Simple and Powerful
+                            Framework for Stable Dynamic Network Embedding</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://arxiv.org/abs/2410.20895"
+                            >UAI 2025: Valid Bootstraps for Networks with
+                            Applications to Network Visualisation</a
+                        >
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section" id="interests">
+                <h2>Interests</h2>
+                <p>
+                    Climbing, board games, music production, gym, Mandarin (HSK
+                    1).
+                </p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact & Links</h2>
+                <ul class="contact-list">
+                    <li>
+                        Email: edwarddavis[at]hotmail.co.uk,
+                        edward.davis[at]bristol.ac.uk
+                    </li>
+                    <li>
+                        GitHub:
+                        <a href="https://github.com/edwarddavis1"
+                            >edwarddavis1</a
+                        >
+                    </li>
+                    <li>
+                        LinkedIn:
+                        <a href="https://www.linkedin.com/in/edwarddavis941/"
+                            >edwarddavis941</a
+                        >
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>
