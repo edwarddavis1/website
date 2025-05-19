@@ -44,7 +44,7 @@ a:hover::after {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #41b6c4, #ca054d);
+    background: linear-gradient(135deg, #4a90e2, #d0021b); /* Less saturated blue and red tones */
     color: #fff;
     padding: 20px;
     text-align: center;
