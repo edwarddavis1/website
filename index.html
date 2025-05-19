@@ -18,7 +18,7 @@
   <header>
     <div>
       <h1 style="color: #fff;">Ed Davis</h1>
-      <img src="IMG_3060.jpg" alt="Profile Picture" class="profile-picture" width="200">
+      <img src="new_pp_edit.jpg" alt="Profile Picture" class="profile-picture" width="200">
       <h2 style="color: #fff;">PhD, Computational Statistics and Data Science</h2>
       <!-- <h3 style="color: #fff;">University of Bristol</h3> -->
     </div>
@@ -46,10 +46,7 @@
           <li>Email: edwarddavis[at]hotmail.co.uk, edward.davis[at]bristol.ac.uk</li>
           <li>GitHub: <a href="https://github.com/edwarddavis1">edwarddavis1</a></li>
           <li>LinkedIn: <a href="https://www.linkedin.com/in/edwarddavis941/">edwarddavis941</a></li>
-          <li>Google Scholar: <a
-                  href="https://scholar.google.com/citations?user=p8H8c5oAAAAJ&hl=en&oi=sra"
-                  >Ed Davis</a
-              >
+          <li>Google Scholar: <a href="https://scholar.google.com/citations?user=p8H8c5oAAAAJ&hl=en&oi=sra">Ed Davis</a>
           </li>
           <li>PhD supervised by <a href="https://people.maths.bris.ac.uk/~pr12244/">Prof. Patrick Rubin-Delanchy</a> and
             <a href="https://people.maths.bris.ac.uk/~madjl/">Dr Daniel Lawson</a>.
@@ -240,15 +237,19 @@
         <h2>Projects<h2>
 
 
-          <h3>
-          <img src="ugnn_logo.png" alt="ugnn logo" style="vertical-align: middle; height: 3em;">
-          <a href="https://github.com/edwarddavis1/ugnn">UGNN - The Unfolded Graph Neural Networks package</a>
-        </h3>
-        <p>A PyTorch implementation of the <a href="https://arxiv.org/abs/2405.19230">unfolded graph neural network (UGNN)</a>, a powerful and interpretable model for multi-network prediction.</p>
+            <h3>
+              <img src="ugnn_logo.png" alt="ugnn logo" style="vertical-align: middle; height: 3em;">
+              <a href="https://github.com/edwarddavis1/ugnn">UGNN - The Unfolded Graph Neural Networks package</a>
+            </h3>
+            <p>A PyTorch implementation of the <a href="https://arxiv.org/abs/2405.19230">unfolded graph neural network
+                (UGNN)</a>, a powerful and interpretable model for multi-network prediction.</p>
 
-        <p>The model has a theoretical guarantee of valid conformal prediction when predicting into the future on many datasets. Conformal prediction allows for a range of predictions to be output from a single model for the purpose of uncertainty quantification, no matter if the model is a black-box or not. Below is an example of conformal node prediction, which is valid under a UGNN.</p>
+            <p>The model has a theoretical guarantee of valid conformal prediction when predicting into the future on
+              many datasets. Conformal prediction allows for a range of predictions to be output from a single model for
+              the purpose of uncertainty quantification, no matter if the model is a black-box or not. Below is an
+              example of conformal node prediction, which is valid under a UGNN.</p>
 
-        <pre class="code-background"><code class="language-python"># UGNN model output
+            <pre class="code-background"><code class="language-python"># UGNN model output
 output = best_model(unf_network.x, unf_network.edge_index, unf_network.edge_weight)
 
 # Apply conformal prediction (for uncertainty quantification)
@@ -268,7 +269,7 @@ for calib_node_idx in np.random.randint(len(all_pred_sets), size=10):
     )
         </code></pre>
 
-        <pre class="code-background"><code>Node 4352 (True label Teachers): ['1A', '1B', '2A', '2B', '3A']
+            <pre class="code-background"><code>Node 4352 (True label Teachers): ['1A', '1B', '2A', '2B', '3A']
 Node 3657 (True label 1B): ['1A']
 Node 4162 (True label 2A): ['1B', '2A', '2B']
 Node 3492 (True label 3A): ['1A', '1B', '2A', '3A', '3B']
@@ -280,23 +281,24 @@ Node 2941 (True label 1B): ['1A', '1B', '4A']
 Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']
         </code></pre>
 
-        </h3>
+            </h3>
 
 
 
-        <h3>
-          <img src="pyemb_logo.png" alt="pyemb logo" style="vertical-align: middle; height: 3em;">
-          <a href="https://github.com/pyemb/pyemb">pyemb - EDA of embeddings in Python</a>
-        </h3>
-        <p>A Python package for exploring complex datasets including high-dimensional data, relational databases and
-          networks.</p>
+            <h3>
+              <img src="pyemb_logo.png" alt="pyemb logo" style="vertical-align: middle; height: 3em;">
+              <a href="https://github.com/pyemb/pyemb">pyemb - EDA of embeddings in Python</a>
+            </h3>
+            <p>A Python package for exploring complex datasets including high-dimensional data, relational databases and
+              networks.</p>
 
-        <p>For example, the below code can quickly compute a <a href="https://arxiv.org/abs/2311.09251">URLSE dynamic
-            embedding</a> and then produce an interactive plot of the embedding over time.</p>
+            <p>For example, the below code can quickly compute a <a href="https://arxiv.org/abs/2311.09251">URLSE
+                dynamic
+                embedding</a> and then produce an interactive plot of the embedding over time.</p>
 
 
-        <!-- <code>pip install pyemb</code> -->
-        <pre class="code-background"><code class="language-python">import pyemb as eb
+            <!-- <code>pip install pyemb</code> -->
+            <pre class="code-background"><code class="language-python">import pyemb as eb
 
 # Embed the graph using unfolded regularised Laplacian spectral embedding
 d = 10
@@ -305,27 +307,28 @@ URLSE_emb = eb.dyn_embed(As, d=d, method="URLSE")
 # Quick interactive + animated plot of the embedding
 fig = eb.quick_plot(URLSE_emb, n, T, node_labels)</code></pre>
 
-        <div class="network-embedding-container iframe-container">
-          <figure>
-            <iframe src="https://edwarddavis1.github.io/example_pyemb_quick_plot/" width="100%"
-              frameborder="0"></iframe>
-          </figure>
-        </div>
+            <div class="network-embedding-container iframe-container">
+              <figure>
+                <iframe src="https://edwarddavis1.github.io/example_pyemb_quick_plot/" width="100%"
+                  frameborder="0"></iframe>
+              </figure>
+            </div>
 
 
 
-        <h3>Award-Winning Data Visualisation</h3>
-        <p>Runner-up in the Jean Golding Institute's <a
-            href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/">Beauty
-            of Data</a> competition. This visualisation was presented at the <a
-            href=https://www.bristol.ac.uk/golding/events/showcase />Bristol Data and AI Showcase 2022</a>.
+            <h3>Award-Winning Data Visualisation</h3>
+            <p>Runner-up in the Jean Golding Institute's <a
+                href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/">Beauty
+                of Data</a> competition. This visualisation was presented at the <a
+                href=https://www.bristol.ac.uk/golding/events/showcase />Bristol Data and AI Showcase 2022</a>.
 
-          This visualisation displays an embedding of a friendship network between countries on the world stage based on
-          their alliances. </p>
-        <p>(Click image for full-size)</p>
-        <!-- <img src="world_stage.jpg" alt="World Stage Data Visualization" class="images"> -->
-        <a href="world_stage.jpg" target="_blank"><img src="world_stage.jpg" alt="World Stage Data Visualization"
-            class="images"></a>
+              This visualisation displays an embedding of a friendship network between countries on the world stage
+              based on
+              their alliances. </p>
+            <p>(Click image for full-size)</p>
+            <!-- <img src="world_stage.jpg" alt="World Stage Data Visualization" class="images"> -->
+            <a href="world_stage.jpg" target="_blank"><img src="world_stage.jpg" alt="World Stage Data Visualization"
+                class="images"></a>
       </div>
     </section>
 
