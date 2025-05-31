@@ -49,7 +49,6 @@
 }
 
 html {
-  scroll-behaviour: smooth;
   scroll-padding-top: var(--header-height);
 }
 
@@ -349,6 +348,11 @@ nav {
   color: var(--primary);
 }
 
+/* Adds whitespace before links in the contact list (flex display removed it) */
+.contact-list li a::before {
+  content: "\00a0"; /* Unicode for non-breaking space */
+}
+
 /* Cards */
 .card {
   background-color: var(--white);
@@ -468,7 +472,7 @@ nav {
 
 /* Code blocks */
 .code-background {
-  background-color: var(--gray-900);
+  background-color: var(--blue-900);
   border-radius: 8px;
   box-shadow: var(--shadow-md);
   margin: 2rem 0;
