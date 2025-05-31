@@ -8,19 +8,19 @@ const knowledgeBase = {
         "Welcome! I'm here to answer questions about Ed Davis. Feel free to ask about his research, projects, or experience!"
     ],
     experience: {
-        general: "Ed Davis has a PhD in Computational Statistics and Data Science from the University of Bristol. He specializes in graph embeddings, dynamic networks, and machine learning.",
-        skills: "Ed's technical skills include Python, PyTorch, data science, statistical modeling, network analysis, graph neural networks, and AI engineering.",
+        general: "Ed Davis has a PhD in Computational Statistics and Data Science from the University of Bristol. He specialises in graph embeddings, dynamic networks, and machine learning.",
+        skills: "Ed's technical skills include Python, PyTorch, data science, statistical modelling, network analysis, graph neural networks, and AI engineering.",
         research: "Ed's research focuses on multi-layer graph embeddings, with applications in dynamic networks, conformal prediction, and bootstrapping methods."
     },
     projects: {
         ugnn: "UGNN is Ed's PyTorch implementation of unfolded graph neural networks for multi-network prediction. It provides theoretical guarantees for valid conformal prediction, allowing for uncertainty quantification in predictions.",
-        pyemb: "Pyemb is a Python package for exploring complex datasets including high-dimensional data, relational databases, and networks. It makes it easy to compute dynamic embeddings and create interactive visualizations.",
-        visualization: "Ed has created award-winning data visualizations, including a visualization of country alliances that was presented at the Bristol Data and AI Showcase 2022."
+        pyemb: "Pyemb is a Python package for exploring complex datasets including high-dimensional data, relational databases, and networks. It makes it easy to compute dynamic embeddings and create interactive visualisations.",
+        visualization: "Ed has created award-winning data visualisations, including a visualisation of country alliances that was presented at the Bristol Data and AI Showcase 2022."
     },
     papers: {
         conformal: "Valid Conformal Prediction for Dynamic GNNs (ICLR 2025) extends the validity of conformal prediction to dynamic graph neural networks, enabling uncertainty quantification in both transductive and semi-inductive regimes.",
         framework: "A Simple and Powerful Framework for Stable Dynamic Network Embedding (JMLR 2024) introduces a new approach to represent nodes in dynamic networks as evolving vectors, with theoretical guarantees of stability.",
-        bootstrap: "Valid Bootstraps for Networks with Applications to Network Visualisation (UAI 2025) addresses the challenge of bootstrapping inhomogeneous random graphs to quantify uncertainty in network visualizations."
+        bootstrap: "Valid Bootstraps for Networks with Applications to Network Visualisation (UAI 2025) addresses the challenge of bootstrapping inhomogeneous random graphs to quantify uncertainty in network visualisations."
     },
     contact: "You can contact Ed via email at edwarddavis[at]hotmail.co.uk or edward.davis[at]bristol.ac.uk. You can also find him on GitHub (edwarddavis1) and LinkedIn (edwarddavis941)."
 };
@@ -29,7 +29,7 @@ const knowledgeBase = {
 const keywords = {
     greeting: ["hello", "hi", "hey", "greetings", "howdy", "hola"],
     experience: ["experience", "background", "skills", "education", "phd", "expertise", "work"],
-    projects: ["project", "application", "tool", "software", "package", "ugnn", "pyemb", "visualization"],
+    projects: ["project", "application", "tool", "software", "package", "ugnn", "pyemb", "visualisation"],
     papers: ["paper", "research", "publication", "journal", "article", "conference", "iclr", "jmlr", "uai"],
     contact: ["contact", "email", "reach", "github", "linkedin", "connect"]
 };
@@ -72,7 +72,7 @@ function findResponse(userInput) {
         };
     }
     
-    if (input.includes("pyemb") || input.includes("embedding package") || input.includes("visualization tool")) {
+    if (input.includes("pyemb") || input.includes("embedding package") || input.includes("visualisation tool")) {
         return {
             type: 'projects',
             text: knowledgeBase.projects.pyemb,
@@ -100,7 +100,7 @@ function findResponse(userInput) {
         };
     }
     
-    if (input.includes("bootstrap") || input.includes("network visualization") || input.includes("uai")) {
+    if (input.includes("bootstrap") || input.includes("network visualisation") || input.includes("uai")) {
         return {
             type: 'papers',
             text: knowledgeBase.papers.bootstrap,

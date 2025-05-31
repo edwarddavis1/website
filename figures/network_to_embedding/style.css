@@ -1,6 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
+    font-family: "Roboto", sans-serif;
 }
 .plot-heading {
     font-family: "Roboto", sans-serif;
@@ -10,6 +11,14 @@ body {
     font-weight: 300;
     color: #888;
     font-style: italic;
+}
+
+.svg-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider {
@@ -48,5 +57,46 @@ body {
     font-family: "Roboto", sans-serif;
 }
 .slider-ticks {
-    font-family: "Roboto", sans-serif; */
+    font-family: "Roboto", sans-serif;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    .plot-heading {
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .slider {
+        height: 8px;
+    }
+    
+    .slider::-webkit-slider-thumb {
+        width: 16px;
+        height: 16px;
+    }
+    
+    svg text {
+        font-size: 10px;
+    }
+    
+    .slider::before {
+        font-size: 12px;
+        top: -20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .plot-heading {
+        font-size: 14px;
+    }
+    
+    svg circle {
+        r: 3;
+    }
+    
+    .slider-ticks text {
+        font-size: 10px;
+    }
 } 

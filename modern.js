@@ -56,18 +56,18 @@ function initializeIframes() {
       if (iframe.src.includes('harry_potter_vis')) {
         container.style.height = '600px';
         container.style.paddingBottom = '0';
-        console.log(`Applied custom height for Harry Potter visualization`);
+        console.log(`Applied custom height for Harry Potter visualisation`);
       }
       
       if (iframe.src.includes('network_to_dynamic_graph_embedding')) {
         container.style.height = '700px';
         container.style.paddingBottom = '0';
-        console.log(`Applied custom height for dynamic graph embedding visualization`);
+        console.log(`Applied custom height for dynamic graph embedding visualisation`);
       }
       
       if (iframe.src.includes('example_pyemb_quick_plot')) {
         container.style.height = '650px';
-        console.log(`Applied custom height for pyemb visualization`);
+        console.log(`Applied custom height for pyemb visualisation`);
       }
       
       // Add resize event listener to handle window resizing
@@ -85,53 +85,7 @@ function initializeIframes() {
           }
         }
       });
-    }
-  });
-}
-
-// Handle fallback for iframes
-function setupIframeFallbacks() {
-  const template = document.getElementById('iframe-fallback-template');
-  
-  if (!template) return;
-  
-  const iframeContainers = document.querySelectorAll('.iframe-container, .iframe-fullwidth');
-  
-  iframeContainers.forEach(container => {
-    const iframe = container.querySelector('iframe');
-    
-    if (iframe && iframe.src) {
-      // Create fallback element
-      const fallbackClone = template.querySelector('.iframe-fallback').cloneNode(true);
-      const button = fallbackClone.querySelector('.iframe-fallback-button');
-      
-      // Set correct link
-      button.href = iframe.src;
-      
-      // Add to container
-      container.appendChild(fallbackClone);
-      
-      // For graph embedding visualizations, completely hide the fallback
-      if (iframe.src.includes('harry_potter_vis') || 
-          iframe.src.includes('network_to_dynamic_graph_embedding') || 
-          iframe.src.includes('example_pyemb_quick_plot')) {
-        fallbackClone.style.display = 'none';
-      } else {
-        // For other cross-origin iframes, check if they need fallback
-        try {
-          // This will throw an error for cross-origin iframes
-          if (iframe.contentWindow.location.href) {
-            // Same origin, hide fallback
-            fallbackClone.style.opacity = 0;
-            fallbackClone.style.pointerEvents = 'none';
-          }
-        } catch (e) {
-          // Cross-origin, show fallback on hover
-          console.log(`Adding fallback for cross-origin iframe: ${iframe.src}`);
-        }
-      }
-    }
-  });
+    }  });
 }
 
 // Intersection Observer for sections
@@ -237,7 +191,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop - 80,
-        behavior: 'smooth'
+        behaviour: 'smooth'
       });
     }
   });
@@ -317,6 +271,3 @@ createDarkModeToggle();
 
 // Initialize iframes
 initializeIframes();
-
-// Initialize iframe fallbacks
-setTimeout(setupIframeFallbacks, 1000);
