@@ -892,9 +892,12 @@ footer::before {
   --white: #020617;
   
   --gradient-subtle: linear-gradient(135deg, var(--gray-200), var(--gray-100));
-  
-  background-color: var(--gray-100);
+    background-color: var(--gray-100);
   color: var(--gray-800);
+}
+
+.dark-mode header {
+  background-color: rgba(15, 23, 42, 0.9);
 }
 
 .dark-mode .header-scrolled {
