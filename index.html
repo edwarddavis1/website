@@ -1,153 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha512-+J+JzvJZw5zJjJ6zvZJz1WJjzRJv8v8xJQ7xJf2gJ6Y1ZzJv4yJ8J9zJZJfZQJzv5y4zJZ6e7JQzvzJzZJ4zJw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="new_style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ed Davis</title>
-  <link rel="stylesheet" href="new_style.css">
-  <!-- Include Prism.js CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+  <meta name="description" content="Ed Davis - PhD in Computational Statistics and Data Science, specializing in graph embeddings and network analysis">
+  <title>Ed Davis | Graph Embedding & Network Analysis</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <script src="favicon.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <!-- Modern CSS -->
+  <link rel="stylesheet" href="modern.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Prism.js CSS for code highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  
+  <!-- AOS Library for scroll animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  
+  <!-- Typed.js for dynamic text typing effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 
 <body>
-  <header>
-    <div>
-      <h1 style="color: #fff;">Ed Davis</h1>
-      <img src="new_pp_edit.jpg" alt="Profile Picture" class="profile-picture" width="200">
-      <h2 style="color: #fff;">PhD, Computational Statistics and Data Science</h2>
-      <!-- <h3 style="color: #fff;">University of Bristol</h3> -->
-    </div>
-  </header>
-
+  <!-- Main Navigation -->
   <header>
     <nav>
-      <div class="menu">
-        <button onclick="location.href='#about'">Research Outline</button>
-        <button onclick="location.href='#papers'">Papers</button>
-        <button onclick="location.href='#projects'">Projects</button>
-        <button onclick="location.href='blog_page.html'">Blog</button>
-        <button onclick="location.href='cv.html'">CV</button>
+      <a href="#" class="logo">Ed Davis</a>
+      
+      <button class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="nav-menu">
+        <a href="#about" class="nav-link">Research</a>
+        <a href="#papers" class="nav-link">Papers</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="blog_page.html" class="nav-link">Blog</a>
+        <a href="cv.html" class="nav-cta">CV</a>
       </div>
     </nav>
   </header>
+  
+  <!-- Hero Section -->
+  <section class="hero-header">
+    <div class="container">
+      <div class="hero-content">
+        <div class="profile-container">
+          <img src="new_pp_edit.jpg" alt="Ed Davis" class="profile-picture" data-aos="fade-in">
+          <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Ed Davis</h1>
+          <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">PhD, Computational Statistics and Data Science</h2>
+          <p class="mb-4" data-aos="fade-up" data-aos-delay="600">Specializing in <span class="typed-text"></span></p>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator" data-aos="fade-up" data-aos-delay="1200">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
 
 
 
   <main>
+    <!-- Contact & Links Section -->
     <section id="contact">
       <div class="container">
         <h2>Contact & Links</h2>
-        <ul class="contact-list">
-          <li>Email: edwarddavis[at]hotmail.co.uk, edward.davis[at]bristol.ac.uk</li>
-          <li>GitHub: <a href="https://github.com/edwarddavis1">edwarddavis1</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/edwarddavis941/">edwarddavis941</a></li>
-          <li>Google Scholar: <a href="https://scholar.google.com/citations?user=p8H8c5oAAAAJ&hl=en&oi=sra">Ed Davis</a>
-          </li>
-          <li>PhD supervised by <a href="https://people.maths.bris.ac.uk/~pr12244/">Prof. Patrick Rubin-Delanchy</a> and
-            <a href="https://people.maths.bris.ac.uk/~madjl/">Dr Daniel Lawson</a>.
-          </li>
-        </ul>
+        <div class="contact-card" data-aos="fade-up">
+          <ul class="contact-list">
+            <li><i class="fas fa-envelope"></i> Email: edwarddavis[at]hotmail.co.uk, edward.davis[at]bristol.ac.uk</li>
+            <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/edwarddavis1" target="_blank">edwarddavis1</a></li>
+            <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/edwarddavis941/" target="_blank">edwarddavis941</a></li>
+            <li><i class="fas fa-graduation-cap"></i> Google Scholar: <a href="https://scholar.google.com/citations?user=p8H8c5oAAAAJ&hl=en&oi=sra" target="_blank">Ed Davis</a></li>
+            <li><i class="fas fa-university"></i> PhD supervised by <a href="https://people.maths.bris.ac.uk/~pr12244/" target="_blank">Prof. Patrick Rubin-Delanchy</a> and <a href="https://people.maths.bris.ac.uk/~madjl/" target="_blank">Dr Daniel Lawson</a></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <style>
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      .contact-list {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      .contact-list li {
-        margin-bottom: 10px;
-      }
-
-      .contact-list a {
-        color: #007bff;
-        text-decoration: none;
-      }
-
-      .contact-list a:hover {
-        text-decoration: underline;
-      }
-    </style>
-
-
-
-
-
-    <section id="about">
+    <!-- Research Section -->
+    <section id="about" class="bg-light">
       <div class="container">
-        <h2>PhD Research Outline</h2>
-        <p>
-          My PhD thesis addresses the problem of how to understand information encoded in
-          multi-layer graphs. Here, a graph could refer to a network or a corpus of text,
-          and multi-layer could refer to a graph that is dynamic or observed in different
-          contexts. We address this problem through the use of <a
-            href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/"> graph embedding</a>, a
-          process by which we assign each node (or edge, or the whole graph) to a
-          vector. This creates a space in which nodes with similar behaviour are closer to
-          each other. We invented a<a href="https://arxiv.org/abs/2311.09251"> new way of embedding dynamic graphs</a>
-          by using a framework that extended the
-          applicability of any established
-          graph embedding method to multi-layer graphs.
-          We provide a statistical guarantee that our framework produces multi-layer
-          embeddings that are stable over space and time (the first general proof of its
-          kind), and we show through rigorous simulated and real-data experiments that
-          our framework is more powerful and interpretable than other state-of-the-art
-          methods. We have also shown that this framework demonstrates empirical gains when applied to <a
-            href="https://arxiv.org/abs/2405.19230"> Graph Neural Networks</a>.
-        </p>
-        <p>
-          Our proof of stability can be rephrased as a proof of exchangeability, that is,
-          our embedding framework can take a multi-layer graph and turn it into an
-          exchangeable sequence of vectors. With exchangeability, we gain access to
-          other fields of maths, including <a href="https://arxiv.org/abs/2405.19230"> conformal prediction</a> and
-          <a href="https://arxiv.org/abs/2410.20895">the bootstrap</a>.
-        </p>
-
-        <h2>What is a graph embedding?</h2>
-        <p>See the graphic below for a visual explanation of a graph embedding. On the left, we see a Harry Potter
-          emnity network (adversarial interactions) plotted in the conventional way. On the right, we see a
-          corresponding graph embedding where each node is represented in a 2D space (hover over each node to see the
-          correspondence). In this case, the graph embedding is able to separate the good and the bad characters in the
-          Harry Potter world.</p>
-
-
-        <div class="network-embedding-container iframe-container">
-          <!-- <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html"
-            frameborder="0"></iframe> -->
-          <figure>
-            <iframe src="https://edwarddavis1.github.io/harry_potter_vis/index.html" width="100%"
-              frameborder="0"></iframe>
-          </figure>
+        <h2 class="text-center">PhD Research Outline</h2>
+        <div class="card" data-aos="fade-up">
+          <div class="card-content">
+            <p>
+              My PhD thesis addresses the problem of how to understand information encoded in
+              multi-layer graphs. Here, a graph could refer to a network or a corpus of text,
+              and multi-layer could refer to a graph that is dynamic or observed in different
+              contexts. We address this problem through the use of <a
+                href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/" target="_blank">graph embedding</a>, a
+              process by which we assign each node (or edge, or the whole graph) to a
+              vector. This creates a space in which nodes with similar behaviour are closer to
+              each other. We invented a <a href="https://arxiv.org/abs/2311.09251" target="_blank">new way of embedding dynamic graphs</a>
+              by using a framework that extended the
+              applicability of any established
+              graph embedding method to multi-layer graphs.
+            </p>
+            <p>
+              We provide a statistical guarantee that our framework produces multi-layer
+              embeddings that are stable over space and time (the first general proof of its
+              kind), and we show through rigorous simulated and real-data experiments that
+              our framework is more powerful and interpretable than other state-of-the-art
+              methods. We have also shown that this framework demonstrates empirical gains when applied to <a
+                href="https://arxiv.org/abs/2405.19230" target="_blank">Graph Neural Networks</a>.
+            </p>
+            <p>
+              Our proof of stability can be rephrased as a proof of exchangeability, that is,
+              our embedding framework can take a multi-layer graph and turn it into an
+              exchangeable sequence of vectors. With exchangeability, we gain access to
+              other fields of maths, including <a href="https://arxiv.org/abs/2405.19230" target="_blank">conformal prediction</a> and
+              <a href="https://arxiv.org/abs/2410.20895" target="_blank">the bootstrap</a>.
+            </p>
+          </div>
         </div>
 
-        <p>My work mainly focuses on how to best compute a dynamic graph embedding. In the below example, a network is
-          changing its connections over time. In the corresponding dynamic embedding, we are able to see how this
-          structure changes over time - click "Play" to see a dynamic graph embedding in action! To find out more about
-          this intersting field, see <a
-            href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">this</a> blog post, or
-          some of my <a href="#papers">papers</a>. </p>
+        <h2 class="text-center mt-5">What is a graph embedding?</h2>
+        <div class="card" data-aos="fade-up">
+          <div class="card-content">
+            <p>See the graphic below for a visual explanation of a graph embedding. On the left, we see a Harry Potter
+              emnity network (adversarial interactions) plotted in the conventional way. On the right, we see a
+              corresponding graph embedding where each node is represented in a 2D space (hover over each node to see the
+              correspondence). In this case, the graph embedding is able to separate the good and the bad characters in the
+              Harry Potter world.</p>
 
-        <div class="network-embedding-container iframe-container">
-          <figure>
-            <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html" width="100%"
-              frameborder="0"></iframe>
-          </figure>
+            <div class="iframe-container tall" data-aos="fade-up" data-iframe-resize="true">
+              <iframe src="https://edwarddavis1.github.io/harry_potter_vis/index.html" frameborder="0" loading="lazy" onload="resizeIframe(this)"></iframe>
+            </div>
+
+            <p>My work mainly focuses on how to best compute a dynamic graph embedding. In the below example, a network is
+              changing its connections over time. In the corresponding dynamic embedding, we are able to see how this
+              structure changes over time - click "Play" to see a dynamic graph embedding in action! To find out more about
+              this interesting field, see <a href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/" target="_blank">this</a> blog post, or some of my <a href="#papers">papers</a>.</p>
+
+            <div class="iframe-container dynamic" data-aos="fade-up" data-iframe-resize="true">
+              <iframe src="https://edwarddavis1.github.io/network_to_dynamic_graph_embedding/index.html" frameborder="0" loading="lazy" onload="resizeIframe(this)"></iframe>
+            </div>
+          </div>
         </div>
-
-
-
       </div>
     </section>
 
@@ -156,108 +159,140 @@
 
 
 
+    <!-- Papers Section -->
     <section id="papers">
-
       <div class="container">
-        <h2>Papers</h2>
-        <h3><a href="https://arxiv.org/abs/2405.19230"> Valid Conformal Prediction for Dynamic GNNs (ICLR 2025)</a>
-        </h3>
-        <article>
-          Graph neural networks (GNNs) are powerful black-box models which have shown impressive empirical performance.
-          However, without any form of uncertainty quantification, it can be difficult to trust such models in high-risk
-          scenarios. Conformal prediction aims to address this problem, however, an assumption of exchangeability is
-          required for its validity which has limited its applicability to static graphs and transductive regimes.
-
-          We propose to use unfolding, which allows any existing static GNN to output a dynamic graph embedding with
-          exchangeability properties. Using this, we extend the validity of conformal prediction to dynamic GNNs in both
-          transductive and semi-inductive regimes. We provide a theoretical guarantee of valid conformal prediction in
-          these cases and demonstrate the empirical validity, as well as the performance gains, of unfolded GNNs against
-          standard GNN architectures on both simulated and real datasets.
-        </article>
-        <img src="iid_sbm_ugcn_block_gcn_trans.png"
-          alt="A dynamic embedding of i.i.d. data using UGCN and a standard GCN." class="images" />
-        <figcaption><strong>Figure:</strong> UGCN and block diagonal GCN representations of an i.i.d. stochastic block
-          model after applying PCA. The models were trained with transductive masks. Block diagonal GCN appears to
-          encode a significant change over time despite there being none. The embedding from UGCN is exchangeable over
-          time, as would be expected.
-        </figcaption>
-
-
-
-        <h3><a href="https://arxiv.org/abs/2311.09251">A Simple and Powerful Framework for
-            Stable Dynamic Network Embedding (Corrections, JMLR 2024)</a>
-        </h3>
-        <article>
-          <p>In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a
-            dynamic network as evolving vectors within a low-dimensional space. While the field of single-graph
-            embedding is wide and established, the field of dynamic graph embedding is comparatively in its infancy. In
-            this paper, we propose that we can take a wide class of established single-graph embedding methods and use
-            them to produce interpretable and powerful dynamic graph embeddings by simply applying them to the dilated
-            unfolded matrix. We provide a theoretical guarantee that, regardless of embedding dimension, these
-            <i>unfolded</i> methods will produce stable embeddings over time and space, meaning that nodes with
-            identical latent behaviour will be exchangeable, regardless of their position in time or space.
-          </p>
-        </article>
-        <img src="europe_and_uk_italy_URLSE.jpg" alt="1D Embedding of Flight Network" class="images" />
-        <figcaption><strong>Figure:</strong> A one-dimensional URLSE displaying the average temporal structure of
-          airports in Italy, the UK and across Europe. The embedding encodes the two main European waves of COVID-19 as
-          well as an annual periodic structure before and after the pandemic. We also see that the pandemic hit Italy
-          slightly before the UK and the rest of Europe.
-        </figcaption>
-
-
-
-        <h3><a href="https://arxiv.org/abs/2410.20895">Valid Bootstraps for Networks with Applications to Network
-            Visualisation (UAI 2025)</a></h3>
-        <article>
-          <p>Quantifying uncertainty in networks is an important step in modelling relationships and interactions
-            between entities. We consider the challenge of bootstrapping an inhomogeneous random graph when only a
-            single observation of the network is made and the underlying data generating function is unknown. We utilise
-            an exchangeable network test that can empirically validate bootstrap samples generated by any method, by
-            testing if the observed and bootstrapped networks are statistically distinguishable. We find that existing
-            methods fail this test. To address this, we propose a principled, novel, distribution-free network bootstrap
-            using k-nearest neighbour smoothing, that can regularly pass this exchangeable network test in both
-            synthetic and real-data scenarios. We demonstrate the utility of this work in combination with the popular
-            data visualisation method t-SNE, where uncertainty estimates from bootstrapping are used to explain whether
-            visible structures represent real statistically sound structures.</p>
-        </article>
-        <img src="bootstrap_paper_img.png" alt="Our network bootstrapping procedure" class="images" />
-        <figcaption><strong>Figure:</strong> An overview of the proposed graph bootstrap framework. Given an adjacency
-          matrix (a), we use its network embedding (b) to estimate the probability matrix (c) using k-nearest
-          neighbours, from which the adjacency matrix was drawn. From this, we draw many new adjacency matrices (d) and
-          use them to estimate the uncertainty in the network embedding (e). We then use this uncertainty to explain the
-          visible structures in the network embedding (f).
-        </figcaption>
+        <h2 class="text-center">Research Papers</h2>
+        
+        <div class="paper-card" data-aos="fade-up">
+          <h3 class="paper-title">
+            <a href="https://arxiv.org/abs/2405.19230" target="_blank">Valid Conformal Prediction for Dynamic GNNs (ICLR 2025)</a>
+          </h3>
+          <div class="paper-content">
+            <p class="paper-text">
+              Graph neural networks (GNNs) are powerful black-box models which have shown impressive empirical performance.
+              However, without any form of uncertainty quantification, it can be difficult to trust such models in high-risk
+              scenarios. Conformal prediction aims to address this problem, however, an assumption of exchangeability is
+              required for its validity which has limited its applicability to static graphs and transductive regimes.
+            </p>
+            <p class="paper-text">
+              We propose to use unfolding, which allows any existing static GNN to output a dynamic graph embedding with
+              exchangeability properties. Using this, we extend the validity of conformal prediction to dynamic GNNs in both
+              transductive and semi-inductive regimes. We provide a theoretical guarantee of valid conformal prediction in
+              these cases and demonstrate the empirical validity, as well as the performance gains, of unfolded GNNs against
+              standard GNN architectures on both simulated and real datasets.
+            </p>
+            <img src="iid_sbm_ugcn_block_gcn_trans.png" alt="A dynamic embedding of i.i.d. data using UGCN and a standard GCN." 
+                 class="images" data-aos="fade-up" />
+            <figcaption><strong>Figure:</strong> UGCN and block diagonal GCN representations of an i.i.d. stochastic block
+              model after applying PCA. The models were trained with transductive masks. Block diagonal GCN appears to
+              encode a significant change over time despite there being none. The embedding from UGCN is exchangeable over
+              time, as would be expected.
+            </figcaption>
+            <a href="https://arxiv.org/abs/2405.19230" target="_blank" class="paper-link">
+              <i class="fas fa-external-link-alt"></i> Read the full paper
+            </a>
+          </div>
+        </div>
+        
+        <div class="paper-card" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="paper-title">
+            <a href="https://arxiv.org/abs/2311.09251" target="_blank">A Simple and Powerful Framework for Stable Dynamic Network Embedding (Corrections, JMLR 2024)</a>
+          </h3>
+          <div class="paper-content">
+            <p class="paper-text">
+              In this paper, we address the problem of dynamic network embedding, that is, representing the nodes of a
+              dynamic network as evolving vectors within a low-dimensional space. While the field of single-graph
+              embedding is wide and established, the field of dynamic graph embedding is comparatively in its infancy. In
+              this paper, we propose that we can take a wide class of established single-graph embedding methods and use
+              them to produce interpretable and powerful dynamic graph embeddings by simply applying them to the dilated
+              unfolded matrix. We provide a theoretical guarantee that, regardless of embedding dimension, these
+              <i>unfolded</i> methods will produce stable embeddings over time and space, meaning that nodes with
+              identical latent behaviour will be exchangeable, regardless of their position in time or space.
+            </p>
+            <img src="europe_and_uk_italy_URLSE.jpg" alt="1D Embedding of Flight Network" class="images" data-aos="fade-up" />
+            <figcaption><strong>Figure:</strong> A one-dimensional URLSE displaying the average temporal structure of
+              airports in Italy, the UK and across Europe. The embedding encodes the two main European waves of COVID-19 as
+              well as an annual periodic structure before and after the pandemic. We also see that the pandemic hit Italy
+              slightly before the UK and the rest of Europe.
+            </figcaption>
+            <a href="https://arxiv.org/abs/2311.09251" target="_blank" class="paper-link">
+              <i class="fas fa-external-link-alt"></i> Read the full paper
+            </a>
+          </div>
+        </div>
+        
+        <div class="paper-card" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="paper-title">
+            <a href="https://arxiv.org/abs/2410.20895" target="_blank">Valid Bootstraps for Networks with Applications to Network Visualisation (UAI 2025)</a>
+          </h3>
+          <div class="paper-content">
+            <p class="paper-text">
+              Quantifying uncertainty in networks is an important step in modelling relationships and interactions
+              between entities. We consider the challenge of bootstrapping an inhomogeneous random graph when only a
+              single observation of the network is made and the underlying data generating function is unknown. We utilise
+              an exchangeable network test that can empirically validate bootstrap samples generated by any method, by
+              testing if the observed and bootstrapped networks are statistically distinguishable. We find that existing
+              methods fail this test. To address this, we propose a principled, novel, distribution-free network bootstrap
+              using k-nearest neighbour smoothing, that can regularly pass this exchangeable network test in both
+              synthetic and real-data scenarios. We demonstrate the utility of this work in combination with the popular
+              data visualisation method t-SNE, where uncertainty estimates from bootstrapping are used to explain whether
+              visible structures represent real statistically sound structures.
+            </p>
+            <img src="bootstrap_paper_img.png" alt="Our network bootstrapping procedure" class="images" data-aos="fade-up" />
+            <figcaption><strong>Figure:</strong> An overview of the proposed graph bootstrap framework. Given an adjacency
+              matrix (a), we use its network embedding (b) to estimate the probability matrix (c) using k-nearest
+              neighbours, from which the adjacency matrix was drawn. From this, we draw many new adjacency matrices (d) and
+              use them to estimate the uncertainty in the network embedding (e). We then use this uncertainty to explain the
+              visible structures in the network embedding (f).
+            </figcaption>
+            <a href="https://arxiv.org/abs/2410.20895" target="_blank" class="paper-link">
+              <i class="fas fa-external-link-alt"></i> Read the full paper
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    </section>
-    <section id="projects">
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light">
       <div class="container">
-        <h2>Projects<h2>
-
-
-            <h3>
-              <img src="ugnn_logo.png" alt="ugnn logo" style="vertical-align: middle; height: 3em;">
-              <a href="https://github.com/edwarddavis1/ugnn">UGNN - The Unfolded Graph Neural Networks package</a>
-            </h3>
-            <p>A PyTorch implementation of the <a href="https://arxiv.org/abs/2405.19230">unfolded graph neural network
-                (UGNN)</a>, a powerful and interpretable model for multi-network prediction.</p>
-
-            <p>The model has a theoretical guarantee of valid conformal prediction when predicting into the future on
+        <h2 class="text-center">Projects</h2>
+        
+        <!-- UGNN Project -->
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-content">
+            <div class="d-flex align-items-center mb-4">
+              <img src="ugnn_logo.png" alt="UGNN logo" class="project-logo mr-3">
+              <h3 class="project-title mb-0">
+                <a href="https://github.com/edwarddavis1/ugnn" target="_blank">UGNN - The Unfolded Graph Neural Networks package</a>
+              </h3>
+            </div>
+            
+            <p class="project-text">
+              A PyTorch implementation of the <a href="https://arxiv.org/abs/2405.19230" target="_blank">unfolded graph neural network
+              (UGNN)</a>, a powerful and interpretable model for multi-network prediction.
+            </p>
+            
+            <p class="project-text">
+              The model has a theoretical guarantee of valid conformal prediction when predicting into the future on
               many datasets. Conformal prediction allows for a range of predictions to be output from a single model for
               the purpose of uncertainty quantification, no matter if the model is a black-box or not. Below is an
-              example of conformal node prediction, which is valid under a UGNN.</p>
-
-            <pre class="code-background"><code class="language-python"># UGNN model output
+              example of conformal node prediction, which is valid under a UGNN.
+            </p>
+            
+            <div class="code-background">
+              <pre><code class="language-python"># UGNN model output
 output = best_model(unf_network.x, unf_network.edge_index, unf_network.edge_weight)
 
 # Apply conformal prediction (for uncertainty quantification)
 all_pred_sets = get_prediction_sets(
     output, unf_network, calib_mask, test_mask, score_function="APS", alpha=0.1
-)
-
-# Look at the prediction sets for 10 random nodes
+)</code></pre>
+            </div>
+            
+            <div class="code-background">
+              <pre><code class="language-python"># Look at the prediction sets for 10 random nodes
 for calib_node_idx in np.random.randint(len(all_pred_sets), size=10):
     node_pred_set = all_pred_sets[calib_node_idx]
     node_idx = np.where(calib_mask == 1)[0][calib_node_idx]
@@ -266,10 +301,11 @@ for calib_node_idx in np.random.randint(len(all_pred_sets), size=10):
     ]
     print(
         f"Node {node_idx} (True label {str(all_labels[unf_network.y[node_idx]])}): {possible_labels_for_node}"
-    )
-        </code></pre>
-
-            <pre class="code-background"><code>Node 4352 (True label Teachers): ['1A', '1B', '2A', '2B', '3A']
+    )</code></pre>
+            </div>
+            
+            <div class="code-background mt-4">
+              <pre><code>Node 4352 (True label Teachers): ['1A', '1B', '2A', '2B', '3A']
 Node 3657 (True label 1B): ['1A']
 Node 4162 (True label 2A): ['1B', '2A', '2B']
 Node 3492 (True label 3A): ['1A', '1B', '2A', '3A', '3B']
@@ -278,27 +314,37 @@ Node 3095 (True label 5A): ['4A', '4B', '5B']
 Node 3097 (True label 5A): ['4A', '5A']
 Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']
 Node 2941 (True label 1B): ['1A', '1B', '4A']
-Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']
-        </code></pre>
-
-            </h3>
-
-
-
-            <h3>
-              <img src="pyemb_logo.png" alt="pyemb logo" style="vertical-align: middle; height: 3em;">
-              <a href="https://github.com/pyemb/pyemb">pyemb - EDA of embeddings in Python</a>
-            </h3>
-            <p>A Python package for exploring complex datasets including high-dimensional data, relational databases and
-              networks.</p>
-
-            <p>For example, the below code can quickly compute a <a href="https://arxiv.org/abs/2311.09251">URLSE
-                dynamic
-                embedding</a> and then produce an interactive plot of the embedding over time.</p>
-
-
-            <!-- <code>pip install pyemb</code> -->
-            <pre class="code-background"><code class="language-python">import pyemb as eb
+Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']</code></pre>
+            </div>
+            
+            <a href="https://github.com/edwarddavis1/ugnn" target="_blank" class="project-link mt-4">
+              <i class="fab fa-github"></i> View project on GitHub
+            </a>
+          </div>
+        </div>
+        
+        <!-- pyemb Project -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-content">
+            <div class="d-flex align-items-center mb-4">
+              <img src="pyemb_logo.png" alt="pyemb logo" class="project-logo mr-3">
+              <h3 class="project-title mb-0">
+                <a href="https://github.com/pyemb/pyemb" target="_blank">pyemb - EDA of embeddings in Python</a>
+              </h3>
+            </div>
+            
+            <p class="project-text">
+              A Python package for exploring complex datasets including high-dimensional data, relational databases and
+              networks.
+            </p>
+            
+            <p class="project-text">
+              For example, the below code can quickly compute a <a href="https://arxiv.org/abs/2311.09251" target="_blank">URLSE
+              dynamic embedding</a> and then produce an interactive plot of the embedding over time.
+            </p>
+            
+            <div class="code-background">
+              <pre><code class="language-python">import pyemb as eb
 
 # Embed the graph using unfolded regularised Laplacian spectral embedding
 d = 10
@@ -306,31 +352,41 @@ URLSE_emb = eb.dyn_embed(As, d=d, method="URLSE")
 
 # Quick interactive + animated plot of the embedding
 fig = eb.quick_plot(URLSE_emb, n, T, node_labels)</code></pre>
-
-            <div class="network-embedding-container iframe-container">
-              <figure>
-                <iframe src="https://edwarddavis1.github.io/example_pyemb_quick_plot/" width="100%"
-                  frameborder="0"></iframe>
-              </figure>
             </div>
-
-
-
-            <h3>Award-Winning Data Visualisation</h3>
-            <p>Runner-up in the Jean Golding Institute's <a
-                href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/">Beauty
+            
+            <h4 class="mt-4 mb-3">Example Interactive Visualization:</h4>
+            <div class="iframe-fullwidth" data-iframe-resize="true">
+              <iframe src="https://edwarddavis1.github.io/example_pyemb_quick_plot/" frameborder="0" loading="lazy" onload="resizeIframe(this)"></iframe>
+            </div>
+            
+            <a href="https://github.com/pyemb/pyemb" target="_blank" class="project-link mt-4">
+              <i class="fab fa-github"></i> View project on GitHub
+            </a>
+          </div>
+        </div>
+        
+        <!-- Award-Winning Visualization -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-content">
+            <h3 class="project-title">Award-Winning Data Visualisation</h3>
+            <p class="project-text">
+              Runner-up in the Jean Golding Institute's <a
+                href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/" target="_blank">Beauty
                 of Data</a> competition. This visualisation was presented at the <a
-                href=https://www.bristol.ac.uk/golding/events/showcase />Bristol Data and AI Showcase 2022</a>.
-
+                href="https://www.bristol.ac.uk/golding/events/showcase" target="_blank">Bristol Data and AI Showcase 2022</a>.
+            </p>
+            <p class="project-text">
               This visualisation displays an embedding of a friendship network between countries on the world stage
-              based on
-              their alliances. </p>
-            <p>(Click image for full-size)</p>
-            <!-- <img src="world_stage.jpg" alt="World Stage Data Visualization" class="images"> -->
-            <a href="world_stage.jpg" target="_blank"><img src="world_stage.jpg" alt="World Stage Data Visualization"
-                class="images"></a>
-
-
+              based on their alliances.
+            </p>
+            <div class="text-center">
+              <a href="world_stage.jpg" target="_blank" class="d-inline-block" data-aos="fade-up">
+                <img src="world_stage.jpg" alt="World Stage Data Visualization" class="images" style="max-width: 100%; margin: 0 auto;">
+              </a>
+              <p><em>(Click image for full-size)</em></p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -383,27 +439,57 @@ fig = eb.quick_plot(URLSE_emb, n, T, node_labels)</code></pre>
         </div>
       </section> -->
   </main>
-  <script src="script.js"></script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h3>Ed Davis</h3>
+          <p>PhD, Computational Statistics and Data Science</p>
+          <p>University of Bristol</p>
+        </div>
+        <div class="footer-right">
+          <div class="social-links">
+            <a href="https://github.com/edwarddavis1" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/edwarddavis941/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com/citations?user=p8H8c5oAAAAJ&hl=en&oi=sra" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Ed Davis. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="modern.js"></script>
+  
   <script>
-    // let colours = [
-    //     "#41b6c4",
-    //     "#CA054D",
-    //     "#3B1C32",
-    //     "#B96D40",
-    //     "#F9C846",
-    //     "#6153CC",
-    // ];
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
   </script>
 
-
-  <!-- Include Prism.js JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
-  
-  <!-- Include Chatbot CSS and JavaScript -->
-  <link rel="stylesheet" href="chatbot.css">
-  <script src="chatbot.js"></script>
+  <!-- Custom message for iframe fallbacks -->
+  <div id="iframe-fallback-template" style="display: none;">
+    <div class="iframe-fallback">
+      <div class="iframe-fallback-content">
+        <i class="fas fa-external-link-alt"></i>
+        <p>Interactive content may be limited in this preview.</p>
+        <a href="#" target="_blank" class="iframe-fallback-button">Open in New Tab</a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
