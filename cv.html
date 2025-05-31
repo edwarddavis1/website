@@ -3,515 +3,729 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ed Davis - CV</title>
-        <link rel="stylesheet" href="new_style.css" />
+        <title>Ed Davis | CV</title>
+        <link rel="stylesheet" href="css/modern.css" />
         <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             rel="stylesheet"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
         <style>
-            body {
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-                color: #333;
+            :root {
+                --cv-primary: #2563eb;
+                --cv-secondary: #64748b;
+                --cv-accent: #2563eb;
+                --cv-background: #ffffff;
+                --cv-surface: #f8fafc;
+                --cv-text-primary: #1e293b;
+                --cv-text-secondary: #64748b;
+                --cv-border: #e2e8f0;
+                --cv-success: #10b981;
+                --cv-gradient: linear-gradient(135deg, var(--cv-primary) 0%, var(--cv-accent) 100%);
+            }
+
+            * {
                 margin: 0;
                 padding: 0;
+                box-sizing: border-box;
             }
 
-            .container {
-                max-width: 900px;
-                margin: 0 auto;
-                padding: 20px;
+            body {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                line-height: 1.7;
+                color: var(--cv-text-primary);
+                background: var(--cv-background);
+                font-size: 16px;
             }
 
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 20px;
+            .cv-container {
+                max-width: 210mm; /* A4 width */
+                margin: 2rem auto;
+                background: white;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            /* Header Section */
+            .cv-header {
+                background: var(--cv-gradient);
+                color: white;
+                padding: 3rem 2rem;
+                text-align: center;
+                position: relative;
+            }
+
+            .cv-header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+                opacity: 0.3;
+            }
+
+            .cv-header-content {
+                position: relative;
+                z-index: 1;
+            }
+
+            .cv-name {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 3rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                letter-spacing: -0.02em;
+            }
+
+            .cv-title {
+                font-size: 1.25rem;
+                font-weight: 400;
+                opacity: 0.9;
+                margin-bottom: 1rem;
+            }
+
+            .cv-contact {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+                margin-top: 1.5rem;
+            }
+
+            .cv-contact-item {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.95rem;
+                opacity: 0.9;
+            }
+
+            .cv-contact-item i {
+                width: 16px;
                 text-align: center;
             }
 
-            h1 {
-                color: #fff;
+            /* Main Content */
+            .cv-content {
+                padding: 2rem;
             }
 
-            h2,
-            h3 {
-                color: #007bff;
+            .cv-section {
+                margin-bottom: -5rem;
             }
 
-            ul {
-                list-style-type: disc; /* Add bullet points */
-                padding-left: 20px; /* Add indentation for bullets */
+            .cv-section:last-child {
+                margin-bottom: 0;
             }
 
-            .skills-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px; /* Add spacing between skill boxes */
-                padding: 0; /* Remove padding from the list */
-                list-style: none; /* Remove bullet points */
-            }
-
-            .skills-list li {
-                background: #f4f4f4;
-                margin: 0; /* Remove margin */
-                padding: 5px; /* Reduce padding */
-                border-radius: 5px;
-                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-                text-align: center; /* Center-align text */
-                flex: 1 1 calc(15% - 10px); /* Reduce width for smaller boxes */
-                max-width: calc(15% - 10px); /* Ensure consistent width */
-                font-size: 0.9em; /* Reduce font size */
-            }
-
-            .projects img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            .date {
-                font-weight: bold;
-                color: #555;
-                background-color: #f0f0f0;
-                padding: 2px 6px;
-                border-radius: 4px;
-                font-size: 0.9em;
-                float: right;
-                margin-left: 0;
-            }
-
-            a > .date {
-                font-size: inherit;
-                font-weight: normal;
-                background-color: transparent;
-                padding: 0;
-                border-radius: 0;
-                float: none;
-                color: inherit;
-            }
-
-            @media print {
-                header,
-                footer,
-                nav {
-                    display: none; /* Hide unnecessary elements for printing */
-                }
-                .container {
-                    margin: 0;
-                    padding: 10px;
-                }
-            }
-
-            h2 {
-                border-bottom: 2px solid #007bff; /* Add underline to section headers */
-                padding-bottom: 5px;
-            }
-
-            .timeline {
+            .cv-section-title {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--cv-primary);
+                margin-bottom: 1.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid var(--cv-primary);
                 position: relative;
-                padding-left: 40px;
-                margin-bottom: 20px;
             }
 
-            .timeline::before {
-                content: "";
+            .cv-section-title::after {
+                content: '';
                 position: absolute;
-                top: 0;
-                left: 20px;
-                width: 2px;
-                height: 100%;
-                background: #007bff;
+                bottom: -2px;
+                left: 0;
+                width: 3rem;
+                height: 2px;
+                background: var(--cv-accent);
             }
 
-            .timeline-item {
+            /* Experience Items */
+            .cv-item {
+                margin-bottom: 2rem;
                 position: relative;
-                margin-bottom: 20px;
+                padding-left: 1.5rem;
             }
 
-            .timeline-item::before {
-                content: "";
+            .cv-item::before {
+                content: '';
                 position: absolute;
-                top: 0;
-                left: 10px;
-                width: 10px;
-                height: 10px;
-                background: #007bff;
+                left: 0;
+                top: 0.5rem;
+                width: 8px;
+                height: 8px;
+                background: var(--cv-primary);
                 border-radius: 50%;
             }
 
-            footer {
+            .cv-item-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 0.5rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .cv-item-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: var(--cv-text-primary);
+                margin: 0;
+            }
+
+            .cv-item-subtitle {
+                font-size: 1rem;
+                font-weight: 500;
+                color: var(--cv-primary);
+                margin: 0.25rem 0;
+            }
+
+            .cv-date {
+                background: var(--cv-surface);
+                color: var(--cv-text-secondary);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 500;
+                white-space: nowrap;
+                border: 1px solid var(--cv-border);
+            }
+
+            .cv-item-content {
+                margin-top: 0.75rem;
+            }
+
+            .cv-item-content ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .cv-item-content li {
+                position: relative;
+                padding-left: 1.5rem;
+                margin-bottom: 0.5rem;
+                line-height: 1.6;
+            }
+
+            .cv-item-content li::before {
+                content: '→';
+                position: absolute;
+                left: 0;
+                color: var(--cv-primary);
+                font-weight: 600;
+            }
+
+            /* Skills Section */
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.75rem;
+                list-style: none;
+                padding: 0;
+            }
+
+            .skill-item {
+                background: var(--cv-surface);
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
                 text-align: center;
-                margin-top: 20px;
-                font-size: 0.9em;
-                color: #555;
+                font-weight: 500;
+                border: 1px solid var(--cv-border);
+                transition: all 0.2s ease;
+                font-size: 0.9rem;
+            }
+
+            .skill-item:hover {
+                background: var(--cv-primary);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            }
+
+            /* Papers Section */
+            .cv-papers {
+                list-style: none;
+                padding: 0;
+            }
+
+            .cv-paper {
+                background: var(--cv-surface);
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                border-left: 4px solid var(--cv-primary);
+                transition: all 0.2s ease;
+            }
+
+            .cv-paper:hover {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-2px);
+            }
+
+            .cv-paper-title {
+                font-weight: 600;
+                color: var(--cv-primary);
+                text-decoration: none;
+                font-size: 1.05rem;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .cv-paper-venue {
+                color: var(--cv-success);
+                font-weight: 500;
+                font-size: 0.9rem;
+            }
+
+            /* Summary Section */
+            .cv-summary {
+                background: var(--cv-surface);
+                padding: 1.5rem;
+                border-radius: 8px;
+                border-left: 4px solid var(--cv-accent);
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            /* Print Styles */
+            @media print {
+                .cv-container {
+                    box-shadow: none;
+                    margin: 0;
+                    border-radius: 0;
+                }
+                
+                .cv-header {
+                    background: var(--cv-primary) !important;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+                
+                .cv-content {
+                    padding: 1rem;
+                }
+                
+                .cv-section {
+                    margin-bottom: 1.5rem;
+                }
+                
+                .skill-item:hover {
+                    background: var(--cv-surface);
+                    color: var(--cv-text-primary);
+                    transform: none;
+                    box-shadow: none;
+                }
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .cv-container {
+                    margin: 1rem;
+                    border-radius: 0;
+                }
+                
+                .cv-header {
+                    padding: 2rem 1rem;
+                }
+                
+                .cv-name {
+                    font-size: 2rem;
+                }
+                
+                .cv-contact {
+                    gap: 1rem;
+                    font-size: 0.9rem;
+                }
+                
+                .cv-content {
+                    padding: 1.5rem;
+                }
+                
+                .cv-item-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                
+                .skills-grid {
+                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                    gap: 0.5rem;
+                }
             }
         </style>
     </head>
 
     <body>
-        <div class="container">
-            <header>
-                <h1>Ed Davis</h1>
-                <p>PhD graduate in Computational Statistics and Data Science</p>
+        <div class="cv-container">
+            <header class="cv-header">
+                <div class="cv-header-content">
+                    <h1 class="cv-name">Ed Davis</h1>
+                    <p class="cv-title">PhD Graduate in Computational Statistics and Data Science</p>                    <div class="cv-contact">
+                        <div class="cv-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+44 7530782930</span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>edwarddavis@hotmail.co.uk</span>
+                        </div>
+                        <div class="cv-contact-item">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://eddavis.uk/" target="_blank" style="color: inherit; text-decoration: none;"><span>https://eddavis.uk/</span></a>
+                        </div>
+                        <div class="cv-contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/edwarddavis941/" target="_blank" style="color: inherit; text-decoration: none;"><span>edwarddavis941</span></a>
+                        </div>
+                        <div class="cv-contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/edwarddavis1" target="_blank" style="color: inherit; text-decoration: none;"><span>edwarddavis1</span></a>
+                        </div>
+                    </div>
+                </div>
             </header>
 
-            <section class="section" id="summary">
-                <h2>Summary</h2>
-                <p>
-                    PhD graduate in Computational Statistics and Data Science
-                    with a strong track record of impactful research (ICLR, UAI)
-                    and real-world applications. Experienced in Python, machine
-                    learning, and geometric deep learning, with successful
-                    collaborations across academia and industry (LV=, NHS, Smith
-                    Institute). A published author, open-source contributor, and
-                    award-winning data visualiser.
-                </p>
-            </section>
+            <main class="cv-content">                <section class="cv-section" id="summary">
+                    <h2 class="cv-section-title">Summary</h2>
+                    <div class="cv-summary">
+                        PhD graduate specialising in geometric deep learning, uncertainty quantification, and representation learning. Strong engineering skills, with 7 years of experience using Python for data analysis, model development, and open-source software. Published at top conferences (ICLR, UAI) and contributed to production-quality codebases with robust testing and CI/CD workflows. Proven track record of applying research in real-world settings, including collaborations with the NHS, LV= Insurance and the Smith Institute. Able to work well with others and communicate clearly in both academic and industry settings.
+                    </div>
+                </section>
 
-            <section class="section" id="education">
-                <h2>Education</h2>
-                <h3>University of Bristol</h3>
-                <h4>
-                    <strong
-                        >PhD in Computational Statistics and Data
-                        Science</strong
-                    >
-                    <span class="date">(09/2020 - 12/2024)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Author of three academic papers detailing novel
-                        techniques in geometric deep learning, graph machine
-                        learning, and uncertainty quantification, all developed
-                        under tight deadlines and requiring strong research,
-                        writing, and project management skills.
-                    </li>
-                    <li>
-                        Created the unfolded graph neural network (UGNN),
-                        implemented using Pytorch, which showed a significant
-                        improvement in accuracy against baseline models (up to
-                        91.5% vs 11.6%) and was able to quantify uncertainty in
-                        new regimes. This work was presented at ICLR 2025 and
-                        contributes to the wider field of explainable AI.
-                    </li>
-                    <li>
-                        Initiated and led a University seminar series,
-                        organising 30 talks over three years, bringing together
-                        colleagues to present work, discuss and collaborate.
-                    </li>
-                    <li>
-                        Served as a guest lecturer for the master’s level
-                        Anomaly Detection course based on demonstrated expertise
-                        in the field.
-                    </li>
-                    <li>
-                        Applied academic research in an industrial setting with
-                        LV= Insurance (Allianz Group), developing a custom
-                        exploratory data analysis tool for detecting and
-                        visualizing data drift.
-                    </li>
-                </ul>
+                <section class="cv-section" id="skills">
+                    <h2 class="cv-section-title">Skills</h2>
+                    <div class="cv-item-content">
+                        <ul>
+                            <li><strong>Programming Languages:</strong> Python, R, SQL, C++.</li>
+                            <li><strong>Python Packages:</strong> Pytorch, Scikit-learn, Scipy, Networkx, Numpy, Pandas, Numba, JAX.</li>
+                            <li><strong>Code Management:</strong> GitHub, GitHub workflows, Pytest, UV, Pip, Pyenv, PyPi.</li>
+                            <li><strong>AI & Machine Learning:</strong> GNNs, conformal inference, embeddings, clustering, PCA.</li>
+                            <li><strong>Additional Tools:</strong> Linux, Latex, Bash, Adobe Photoshop, Microsoft Office.</li>
+                        </ul>
+                    </div>
+                </section>
 
-                <h3>University of Manchester</h3>
-                <h4>
-                    <strong
-                        >Master’s Degree in Physics: First Class with
-                        Honours</strong
-                    >
-                    <span class="date">(09/2016 - 06/2020)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Developed an automatic DJ system, leveraging seven music
-                        information retrieval (MIR) algorithms to decide track
-                        ordering and cross-fade points.
-                    </li>
-                    <li>
-                        Partnered with a Manchester-based production company to
-                        partially automate the video editing process by
-                        suggesting edit points based on background music.
-                    </li>
-                    <li>
-                        Entered with the Physics Entrance Scholarship for
-                        outstanding A-levels.
-                    </li>
-                </ul>
+                <section class="cv-section", id="experience">
+                     <h2 class="cv-section-title">Professional Experience</h2>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">Southmead Hospital</h3>
+                                <h4 class="cv-item-subtitle">Honorary Research Student</h4>
+                            </div>
+                            <span class="cv-date">08/2024 - 10/2024</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Developed a machine learning model to predict cerebral
+                                    vasospasm in ICU patients, achieving an AUC of 0.77,
+                                    outperforming previous baseline model attempts (AUC ≈ 0.50).
+                                </li>
+                                <li>
+                                    Implemented SQL and Python code to create pipelines to
+                                    clean messy data from a hospital server, labelling and
+                                    processing over 200 cases of vasospasm from a database of 5,000 patients.
+                                </li>
+                                <li>
+                                    Coordinated collaboration under tight deadlines,
+                                    facilitating communication between doctors and
+                                    university researchers while quickly learning the
+                                    condition's medical background.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <h3>Greenhead College</h3>
-                <h4>
-                    <strong>A-levels</strong>
-                    <span class="date">(09/2014 - 06/2016)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Mathematics (A*), Further Mathematics (A*), Physics
-                        (A*), Extended Project Qualification (A*).
-                    </li>
-                </ul>
-            </section>
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">Smith Institute</h3>
+                                <h4 class="cv-item-subtitle">Research Intern</h4>
+                            </div>
+                            <span class="cv-date">02/2024 - 03/2024</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Co-authored a research document on network resilience,
+                                    focusing on biological applications, to support company
+                                    knowledge development through collaboration with three
+                                    other interns.
+                                </li>
+                                <li>
+                                    Presented research findings to non-specialists under
+                                    tight deadlines, employing storytelling and data
+                                    visualisation techniques to engage the audience.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-            <section class="section" id="experience">
-                <h2>Experience</h2>
-                <h3>Southmead Hospital</h3>
-                <h4>
-                    <strong>Honorary Research Student</strong>
-                    <span class="date">(08/2024 - 10/2024)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Developed a machine learning model to predict cerebral
-                        vasospasm in ICU patients, achieving an AUC of 0.77,
-                        outperforming the previous baseline model (AUC ≈ 0.50).
-                    </li>
-                    <li>
-                        Implemented SQL and Python code to create pipelines to
-                        clean messy data from a hospital server, labelling and
-                        processing over 200 cases of vasospasm.
-                    </li>
-                    <li>
-                        Coordinated collaboration under tight deadlines,
-                        facilitating communication between doctors and
-                        university researchers while quickly learning the
-                        condition’s medical background.
-                    </li>
-                </ul>
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">University of Bristol</h3>
+                                <h4 class="cv-item-subtitle">Teaching Assistant Roles in Computing and Data Science</h4>
+                            </div>
+                            <span class="cv-date">01/2023 - 05/2024</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Taught algorithmic thinking to two classes of 12
+                                    undergraduate students and created engaging learning experiences
+                                    to foster interest in data science and coding.
+                                </li>
+                                <li>
+                                    Provided hands-on instruction and support to help a
+                                    class of 40 students build a strong foundation
+                                    in Python.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <h3>Smith Institute</h3>
-                <h4>
-                    <strong>Research Intern</strong>
-                    <span class="date">(02/2024 - 03/2024)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Co-authored a research document on network resilience,
-                        focusing on biological applications, to support company
-                        knowledge development through collaboration with three
-                        other interns.
-                    </li>
-                    <li>
-                        Presented research findings to non-specialists under
-                        tight deadlines, employing storytelling and data
-                        visualisation techniques to engage the audience.
-                    </li>
-                </ul>
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">Large Hadron Collider, CERN</h3>
+                                <h4 class="cv-item-subtitle">Research Studentship</h4>
+                            </div>
+                            <span class="cv-date">06/2019 - 09/2019</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Processed and analysed large-scale datasets from the ATLAS
+                                    detector to investigate high-energy particle collisions.
+                                </li>
+                                <li>
+                                    Rapidly acquired CERN's ROOT data analysis framework (C++),
+                                    demonstrating adaptability in a fast-paced research environment.
+                                </li>
+                                <li>
+                                    Delivered a research presentation to a general audience,
+                                    effectively translating complex scientific concepts into
+                                    accessible insights.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>                
+                
+                
+            <section class="cv-section" id="education">
+                <h2 class="cv-section-title">Education</h2>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <h3 class="cv-item-title">University of Bristol</h3>
+                            <h4 class="cv-item-subtitle">PhD in Computational Statistics and Data Science</h4>
+                        </div>
+                        <span class="cv-date">09/2020 - 12/2024</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <ul>
+                            <li>
+                                Author of three academic papers detailing novel
+                                techniques in geometric deep learning, graph machine
+                                learning, and uncertainty quantification, all developed
+                                under tight deadlines and requiring strong research,
+                                writing, and project management skills.
+                            </li>
+                            <li>
+                                Created the unfolded graph neural network (UGNN),
+                                implemented using PyTorch, which showed a significant
+                                improvement in accuracy against baseline models (up to
+                                91.5% vs 11.6%) and was able to quantify uncertainty in
+                                new regimes. This work was presented at ICLR 2025 and
+                                contributes to the wider field of explainable AI.
+                            </li>
+                            <li>
+                                Initiated and led a University seminar series,
+                                organising 30 talks over three years, bringing together
+                                colleagues to present work, discuss and collaborate.
+                            </li>
+                            <li>
+                                Served as a guest lecturer for the master's level
+                                Anomaly Detection course based on demonstrated expertise
+                                in the field.
+                            </li>
+                            <li>
+                                Applied academic research in an industrial setting with
+                                LV= Insurance (Allianz Group), developing a custom
+                                exploratory data analysis tool for detecting and
+                                visualising data drift.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                <h3>University of Bristol</h3>
-                <h4>
-                    <strong
-                        >Tutor: Introduction to Coding and Data Analysis</strong
-                    >
-                    <span class="date">(09/2023 - 05/2024)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Taught algorithmic thinking to two classes of 12
-                        undergraduate students, and created learning experiences
-                        that build students’ interest in data science.
-                    </li>
-                </ul>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <h3 class="cv-item-title">University of Manchester</h3>
+                            <h4 class="cv-item-subtitle">Master's Degree in Physics: First Class with Honours</h4>
+                        </div>
+                        <span class="cv-date">09/2016 - 06/2020</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <ul>
+                            <li>
+                                Developed an automatic DJ system, leveraging seven music
+                                information retrieval (MIR) algorithms to decide track
+                                ordering and cross-fade points.
+                            </li>
+                            <li>
+                                Partnered with a Manchester-based production company to
+                                partially automate the video editing process by
+                                suggesting edit points based on background music.
+                            </li>
+                            <li>
+                                Entered with the Physics Entrance Scholarship for
+                                outstanding A-levels.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                <h3>University of Bristol</h3>
-                <h4>
-                    <strong>Lab Assistant: Mathematical Programming</strong>
-                    <span class="date">(01/2023 - 05/2023)</span>
-                </h4>
-                <ul>
-                    <li>
-                        Provided hands-on instruction and support to help a
-                        class of 40 students reach a strong foundational
-                        knowledge of Python.
-                    </li>
-                </ul>
-            </section>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <h3 class="cv-item-title">Greenhead College</h3>
+                            <h4 class="cv-item-subtitle">A-levels</h4>
+                        </div>
+                        <span class="cv-date">09/2014 - 06/2016</span>
+                    </div>
+                    <div class="cv-item-content">
+                        <ul>
+                            <li>
+                                Mathematics (A*), Further Mathematics (A*), Physics
+                                (A*), Extended Project Qualification (A*).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>                <section class="cv-section" id="experience">
 
-            <section class="section" id="projects">
-                <h2>Projects</h2>
-                <span class="date">(04/2025 – Ongoing)</span>
-                <h3>
-                    <a href="https://github.com/edwarddavis1/ugnn"
-                        >UGNN: The Unfolded Graph Neural Networks package</a
-                    >
-                </h3>
-                <ul>
-                    <li>
-                        Designed and implemented a PyTorch-based package for the
-                        Unfolded Graph Neural Network, translating the method
-                        from research into production-grade code.
-                    </li>
-                    <li>
-                        Integrated automated testing (pytest) and continuous
-                        integration pipelines to ensure robustness and
-                        reproducibility.
-                    </li>
-                    <li>
-                        Self-managed the project using a Kanban workflow,
-                        including planning, testing, and maintaining a clear
-                        development history through Git version control.
-                    </li>
-                </ul>
+            
+                
+            <section class="cv-section" id="projects">
+                    <h2 class="cv-section-title">Key Projects</h2>
+                    
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">
+                                    <a href="https://github.com/edwarddavis1/UGNN" style="color: inherit; text-decoration: none;">
+                                        UGNN: The Unfolded Graph Neural Networks package
+                                    </a>
+                                </h3>
+                                <h4 class="cv-item-subtitle">Tools: PyTorch, PyTorch Geometric, UV, GitHub, CI/CD, pytest</h4>
+                            </div>
+                            <span class="cv-date">04/2025 – Ongoing</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Designed and implemented a PyTorch-based package for the
+                                    Unfolded Graph Neural Network, translating the method
+                                    from research into production-grade code.
+                                </li>
+                                <li>
+                                    Integrated automated testing (pytest) and continuous
+                                    integration pipelines to ensure robustness and
+                                    reproducibility.
+                                </li>
+                                <li>
+                                    Self-managed the project using a Kanban workflow,
+                                    including planning, testing, and maintaining a clear
+                                    development history through Git version control.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <span class="date">(08/2024 – Ongoing)</span>
-                <h3>
-                    <a href="https://github.com/pyemb/pyemb"
-                        >pyemb: EDA of embeddings in Python</a
-                    >
-                </h3>
-                <ul>
-                    <li>
-                        Collaborated as part of a team spanning the Universities
-                        of Bristol and Edinburgh to develop pyemb; a Python
-                        package containing tools for exploratory data analysis
-                        of relational data.
-                    </li>
-                    <li>
-                        Implemented multi-layer network embedding algorithms,
-                        speeding up initial implementations by up to 80x.
-                    </li>
-                    <li>
-                        Wrote tests (pytest) for functions across the codebase
-                        and used CI/CD (GitHub actions) to increase the
-                        reliability and accessibility of the codebase.
-                    </li>
-                </ul>
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">
+                                    <a href="https://github.com/pyemb" style="color: inherit; text-decoration: none;">
+                                        pyemb: EDA of embeddings in Python
+                                    </a>
+                                </h3>
+                                <h4 class="cv-item-subtitle">Tools: Python, GitHub, CI/CD, pytest, JIT compilation</h4>
+                            </div>
+                            <span class="cv-date">08/2024 – Ongoing</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Collaborated as part of a team spanning the Universities
+                                    of Bristol and Edinburgh to develop pyemb; a Python
+                                    package containing tools for exploratory data analysis
+                                    of relational data.
+                                </li>
+                                <li>
+                                    Implemented multi-layer network embedding algorithms,
+                                    speeding up initial implementations by up to 80x.
+                                </li>
+                                <li>
+                                    Wrote tests (pytest) for functions across the codebase
+                                    and used CI/CD (GitHub actions) to increase the
+                                    reliability and accessibility of the codebase.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <span class="date">(04/2022)</span>
-                <h3>LV= Data Hackathon: Modelling Air Pollution over Madrid</h3>
-                <ul>
-                    <li>
-                        Predicting air pollution levels at a given location in
-                        Madrid based on historical time-series data from 30
-                        weather stations.
-                    </li>
-                    <li>
-                        Won most innovative solution for the use of
-                        representation learning to assign each monitoring
-                        station a position in space based on climate
-                        similarities. This innovation boosted model performance
-                        and aided the explainability of output.
-                    </li>
-                    <li>
-                        Coordinated with a multidisciplinary team of 5 students
-                        in a fast-paced environment.
-                    </li>
-                </ul>
+                    <div class="cv-item">
+                        <div class="cv-item-header">
+                            <div>
+                                <h3 class="cv-item-title">
+                                    <a href="https://eddavis.uk/world_stage.jpg" style="color: inherit; text-decoration: none;">
+                                        The World Stage: Award-Winning Data Visualisation
+                                    </a>
+                                </h3>
+                                <h4 class="cv-item-subtitle">Tools: Python, Adobe Photoshop, Plotly, matplotlib, seaborn</h4>
+                            </div>
+                            <span class="cv-date">06/2022</span>
+                        </div>
+                        <div class="cv-item-content">
+                            <ul>
+                                <li>
+                                    Created an engaging visualisation of 40 alliances
+                                    between 161 countries to tell the story of where
+                                    countries lie on the world stage.
+                                </li>
+                                <li>
+                                    Awarded runner-up in the Jean Golding Institute's
+                                    <a href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/">
+                                        Beauty of Data
+                                    </a>
+                                    competition.
+                                </li>
+                            </ul>
+                        </div>                </div>
+                </section>
 
-                <span class="date">(06/2022)</span>
-                <h3>
-                    <a href="world_stage.jpg" target="_blank"
-                        >World Stage Visualization</a
-                    >
-                </h3>
-                <ul>
-                    <li>
-                        Created an engaging visualisation of 40 alliances
-                        between 161 countries to tell the story of where
-                        countries lie on the world stage.
-                    </li>
-                    <li>
-                        Runner-up in the Jean Golding Institute's
-                        <a
-                            href="https://www.bristol.ac.uk/golding/get-involved/competitions/the-beauty-of-data-competition-2022/"
-                            >Beauty of Data</a
-                        >
-                        competition.
-                    </li>
-                    <li>
-                        Presented at the
-                        <a
-                            href="https://www.bristol.ac.uk/golding/events/showcase"
-                            >Bristol Data and AI Showcase 2022</a
-                        >.
-                    </li>
-                </ul>
-            </section>
-
-            <section class="section" id="skills">
-                <h2>Skills</h2>
-                <ul class="skills-list">
-                    <li>Python</li>
-                    <li>R</li>
-                    <li>C++</li>
-                    <li>SQL</li>
-                    <li>JavaScript</li>
-                    <li>PyTorch</li>
-                    <li>Scikit-learn</li>
-                    <li>Scipy</li>
-                    <li>Networkx</li>
-                    <li>Numpy</li>
-                    <li>Pandas</li>
-                    <li>Numba</li>
-                    <li>GitHub</li>
-                    <li>CI/CD</li>
-                    <li>Pytest</li>
-                    <li>Linux/Unix</li>
-                    <li>LaTeX</li>
-                    <li>Bash</li>
-                    <li>Adobe Photoshop</li>
-                    <li>Microsoft Office</li>
-                </ul>
-            </section>
-
-            <section class="section" id="papers">
-                <h2>Papers</h2>
-                <ul>
-                    <li>
-                        <a href="https://arxiv.org/abs/2405.19230"
-                            >ICLR 2025: Valid Conformal Prediction for Dynamic
-                            GNNs</a
-                        >
-                    </li>
-                    <li>
-                        <a href="https://arxiv.org/abs/2311.09251"
-                            >Corrections, JMLR 2024: A Simple and Powerful
-                            Framework for Stable Dynamic Network Embedding</a
-                        >
-                    </li>
-                    <li>
-                        <a href="https://arxiv.org/abs/2410.20895"
-                            >UAI 2025: Valid Bootstraps for Networks with
-                            Applications to Network Visualisation</a
-                        >
-                    </li>
-                </ul>
-            </section>
-
-            <section class="section" id="interests">
-                <h2>Interests</h2>
-                <p>
-                    Climbing, board games, music production, gym, Mandarin
-                    (approx HSK 1).
-                </p>
-            </section>
-
-            <section id="contact">
-                <h2>Contact & Links</h2>
-                <ul class="contact-list">
-                    <li>
-                        Email: edwarddavis[at]hotmail.co.uk,
-                        edward.davis[at]bristol.ac.uk
-                    </li>
-                    <li>
-                        GitHub:
-                        <a href="https://github.com/edwarddavis1"
-                            >edwarddavis1</a
-                        >
-                    </li>
-                    <li>
-                        LinkedIn:
-                        <a href="https://www.linkedin.com/in/edwarddavis941/"
-                            >edwarddavis941</a
-                        >
-                    </li>
-                    <li>
-                        Google Scholar:
-                        <a
-                            href="https://scholar.google.com/citations?user=p8H8c5oAAAAJ&hl=en&oi=sra"
-                            >Ed Davis</a
-                        >
-                    </li>
-                </ul>
-            </section>
+                <section class="cv-section" id="interests">
+                    <h2 class="cv-section-title">Interests</h2>
+                    <div class="cv-summary">
+                        Climbing, board games, music production, gym, Mandarin
+                        (approx HSK 1).
+                    </div>
+                </section>
+            </main>
         </div>
-    </body>
+    </div>
+</body>
 </html>

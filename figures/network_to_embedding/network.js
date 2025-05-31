@@ -12,22 +12,25 @@ export const networkPlot = () => {
     ];
 
     const my = (selection) => {
-        // const myTransition = d3.transition().duration(1000);
-
+        // Determine node radius based on screen size and number of nodes
+        const isMobile = window.innerWidth < 768;
+        const nodeRadius = isMobile ? 3 : (data.nodes.length > 50 ? 3 : 5);
+        const linkOpacity = data.nodes.length > 50 ? 0.4 : 0.6;
+        
         const simulation = d3
             .forceSimulation(data.nodes)
             .force(
                 "link",
                 d3.forceLink(data.links).id((d) => d.id)
             )
-            .force("charge", d3.forceManyBody())
+            .force("charge", d3.forceManyBody().strength(isMobile ? -30 : -50))
             .force("center", d3.forceCenter(width / 2, height / 2));
 
         // Only draw the links if the data length is less than 100
         const link = selection
             .append("g")
             .attr("stroke", "#999")
-            .attr("stroke-opacity", 0.6)
+            .attr("stroke-opacity", linkOpacity)
             .selectAll("line")
             .data(data.links)
             .join("line")
@@ -36,12 +39,10 @@ export const networkPlot = () => {
 
         const node = selection
             .append("g")
-            // .attr("stroke", "#fff")
-            // .attr("stroke-width", 1.5)
             .selectAll("circle")
             .data(data.nodes)
             .join("circle")
-            .attr("r", 5)
+            .attr("r", nodeRadius)
             .attr("fill", (d) => (d.tau == 1 ? colours[0] : colours[1]))
             .attr("class", "network")
             .attr("id", (d) => d.id);
@@ -59,9 +60,12 @@ export const networkPlot = () => {
             node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
         });
 
+        // Use the same isMobile variable that was defined earlier
+        const hoverRadius = isMobile ? 6 : 10;
+
         d3.selectAll("circle")
             .on("mouseover", function (_) {
-                d3.select(this).attr("r", 10);
+                d3.select(this).attr("r", hoverRadius);
 
                 d3.selectAll("circle")
                     .attr("fill", (d) => {
@@ -73,20 +77,20 @@ export const networkPlot = () => {
                     })
                     .attr("r", (d) => {
                         if (d.id == this.id) {
-                            return 10;
+                            return hoverRadius;
                         } else {
-                            return 5;
+                            return nodeRadius;
                         }
                     });
             })
             .on("mouseout", function (_) {
-                d3.select(this).attr("r", 5).attr("stroke", "none");
+                d3.select(this).attr("r", nodeRadius).attr("stroke", "none");
 
                 d3.selectAll("circle")
                     .attr("fill", (d) => {
                         return d.tau == 1 ? colours[0] : colours[1];
                     })
-                    .attr("r", 5);
+                    .attr("r", nodeRadius);
             });
     };
     my.width = function (_) {

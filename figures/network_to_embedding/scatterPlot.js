@@ -24,21 +24,23 @@ export const scatterPlot = () => {
     ];
 
     const my = (selection) => {
-        // console.log(data.length);
-        // console.log(d3.extent(data, yValue));
-        // console.log(d3.extent(data, xValue));
+        // Check if we're on a mobile device
+        const isMobile = window.innerWidth < 768;
+        
+        // Adjust transition duration based on device (faster on mobile)
+        const transitionDuration = isMobile ? 300 : 500;
+        
+        // Adjust point size and delay based on data size and device
+        const pointSize = size || (isMobile ? 3 : 5);
+        const delayFactor = isMobile ? 1 : (data.length > 100 ? 2 : 3);
 
         const x = d3
             .scaleLinear()
-            // .domain(d3.extent(data, xValue))
-            // .domain([-1, 1])
             .domain(xDomain)
             .range([margin.left, width - margin.right]);
 
         const y = d3
             .scaleLinear()
-            // .domain(d3.extent(data, yValue))
-            // .domain([-1, 1])
             .domain(yDomain)
             .range([height - margin.bottom, margin.top]);
 
@@ -49,7 +51,7 @@ export const scatterPlot = () => {
             id: d.id,
         }));
 
-        const myTransition = d3.transition().duration(500);
+        const myTransition = d3.transition().duration(transitionDuration);
 
         const nodes = selection
             .selectAll("circle")
@@ -58,27 +60,26 @@ export const scatterPlot = () => {
                 (enter) =>
                     enter
                         .append("circle")
-                        .attr("r", 5)
+                        .attr("r", pointSize)
                         .style("opacity", 0)
                         .attr("cx", (3 * width) / 4)
                         .attr("cy", height / 2)
                         .call((enter) =>
                             enter
                                 .transition(myTransition)
-                                .delay((d, i) => i * 3)
+                                .delay((d, i) => i * delayFactor)
                         ),
                 (update) =>
                     update.call((update) =>
-                        update.transition(myTransition).delay((d, i) => i * 7)
+                        update.transition(myTransition).delay((d, i) => i * delayFactor * 2)
                     )
             )
             .transition(myTransition)
             .attr("cx", (d) => d.x)
             .attr("cy", (d) => d.y)
-            // id each circle with its id element
             .attr("id", (d) => d.id)
             .style("opacity", 1)
-            .attr("r", size)
+            .attr("r", pointSize)
             .attr("fill", (d) => (d.tau == 1 ? colours[0] : colours[1]));
 
         // Add x and y axes
@@ -88,8 +89,7 @@ export const scatterPlot = () => {
             .join("g")
             .attr("class", "x-axis")
             .attr("transform", `translate(0,${height - margin.bottom})`)
-            .call(d3.axisBottom(x).tickFormat(""));
-        // Remove ticks and tick labels by setting tickSize to 0 and tickFormat to an empty string
+            .call(d3.axisBottom(x).tickFormat("").tickSize(isMobile ? 3 : 6));
 
         selection
             .selectAll("g.y-axis") // need to use class as we don't want the y-axis to erase the x-axis
@@ -97,8 +97,7 @@ export const scatterPlot = () => {
             .join("g")
             .attr("class", "y-axis")
             .attr("transform", `translate(${margin.left},0)`)
-            .call(d3.axisLeft(y).tickFormat(""));
-        // Remove ticks and tick labels by setting tickSize to 0 and tickFormat to an empty string
+            .call(d3.axisLeft(y).tickFormat("").tickSize(isMobile ? 3 : 6));
 
         // Y axis label:
         selection
@@ -106,13 +105,14 @@ export const scatterPlot = () => {
             .data([null])
             .join("text")
             .attr("text-anchor", "middle")
-            .attr("x", margin.left - 20)
+            .attr("x", margin.left - (isMobile ? 15 : 20))
             .attr("y", height / 2 - margin.top)
-            .attr("class", "yAxisLabel") // This ensures that multiple labels don't plot when animating
+            .attr("class", "yAxisLabel")
             .attr(
                 "transform",
-                `rotate(-90 ${margin.left - 20}, ${height / 2 - margin.top})`
+                `rotate(-90 ${margin.left - (isMobile ? 15 : 20)}, ${height / 2 - margin.top})`
             )
+            .style("font-size", isMobile ? "10px" : "12px")
             .text(yAxisLabel);
 
         // X axis label:
@@ -122,25 +122,18 @@ export const scatterPlot = () => {
             .join("text")
             .attr("text-anchor", "middle")
             .attr("x", margin.left + (width - margin.left - margin.right) / 2)
-            .attr("y", margin.top + height - margin.top - margin.bottom + 20)
-            .attr("class", "xAxisLabel") // This ensures that multiple labels don't plot when animating
+            .attr("y", margin.top + height - margin.top - margin.bottom + (isMobile ? 15 : 20))
+            .attr("class", "xAxisLabel")
+            .style("font-size", isMobile ? "10px" : "12px")
             .text(xAxisLabel);
 
-        // // Node highlighing on hover
-        // d3.selectAll("circle")
-        //     .on("mouseover", function (_) {
-        //         d3.select(this)
-        //             .attr("r", 10)
-        //             .attr("stroke", "black")
-        //             .attr("stroke-width", 2);
-        //     })
-        //     .on("mouseout", function (_) {
-        //         d3.select(this).attr("r", 5).attr("stroke", "none");
-        //     });
-
+        // Set hover behaviour with responsive sizing
+        const hoverSize = isMobile ? 6 : 10;
+        const normalSize = pointSize;
+        
         d3.selectAll("circle")
             .on("mouseover", function (_) {
-                d3.select(this).attr("r", 10);
+                d3.select(this).attr("r", hoverSize);
 
                 d3.selectAll("circle")
                     .attr("fill", (d) => {
@@ -152,20 +145,20 @@ export const scatterPlot = () => {
                     })
                     .attr("r", (d) => {
                         if (d.id == this.id) {
-                            return 10;
+                            return hoverSize;
                         } else {
-                            return 5;
+                            return normalSize;
                         }
                     });
             })
             .on("mouseout", function (_) {
-                d3.select(this).attr("r", 5).attr("stroke", "none");
+                d3.select(this).attr("r", normalSize).attr("stroke", "none");
 
                 d3.selectAll("circle")
                     .attr("fill", (d) => {
                         return d.tau == 1 ? colours[0] : colours[1];
                     })
-                    .attr("r", 5);
+                    .attr("r", normalSize);
             });
     };
 
