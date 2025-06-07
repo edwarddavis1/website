@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            The Importance of Stability in Dynamic Network
+            Embedding
+        </title>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                line-height: 1.6;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                color: #333;
+                background-color: #f8f9fa;
+            }
+            .container {
+                background: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color: #2c3e50;
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2.5em;
+                border-bottom: 3px solid #3498db;
+                padding-bottom: 10px;
+            }
+            h2 {
+                color: #34495e;
+                margin-top: 30px;
+                margin-bottom: 15px;
+                font-size: 1.5em;
+                border-left: 4px solid #3498db;
+                padding-left: 15px;
+            }
+            h3 {
+                color: #2c3e50;
+                margin-top: 25px;
+                margin-bottom: 10px;
+            }
+            h4 {
+                color: #34495e;
+                margin-top: 20px;
+                margin-bottom: 8px;
+            }
+            .original-post-box {
+                background: #f0f8ff;
+                border: 1px solid #d1e7fd;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                font-style: italic;
+            }
+            .original-post-box a {
+                color: #3498db;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid transparent;
+            }
+            .original-post-box a:hover {
+                color: #2980b9;
+                border-bottom: 1px solid #2980b9;
+                text-decoration: none;
+            }            .original-post-box a:visited {
+                color: #8e44ad;
+            }
+            
+            /* General link styling with gradient underline animation */
+            a {
+                color: #2563eb;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                position: relative;
+                font-weight: 500;
+            }
+
+            a:hover {
+                color: #1d4ed8;
+            }
+
+            a::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -2px;
+                left: 0;
+                background: linear-gradient(135deg, #2563eb, #e11d48);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            a:hover::after {
+                transform: scaleX(1);
+            }
+            .highlight-box {
+                background: #e8f5e8;
+                border-left: 4px solid #27ae60;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            .math-formula {
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                padding: 15px;
+                margin: 15px 0;
+                text-align: center;
+                font-family: "Times New Roman", serif;
+                font-size: 1.1em;
+            }
+            .definition-box {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .figure-caption {
+                background: #f8f9fa;
+                border: 2px solid #dee2e6;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                text-align: center;
+                font-style: italic;
+                color: #6c757d;
+            }
+            .algorithm-box {
+                background: #fff5f5;
+                border-left: 4px solid #e74c3c;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 5px;
+            }
+            .conclusion-box {
+                background: linear-gradient(45deg, #f39c12, #e67e22);
+                color: white;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            .references {
+                background: #e9ecef;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 30px;
+                font-size: 0.9em;
+            }
+            ul {
+                margin: 10px 0;
+                padding-left: 25px;
+            }
+            li {
+                margin: 5px 0;
+            }
+            ol {
+                margin: 10px 0;
+                padding-left: 25px;
+            }
+            .stability-definition {
+                background: #f0fff0;
+                border-left: 4px solid #27ae60;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 5px;
+            }
+            .comparison-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 15px;
+                margin: 20px 0;
+            }
+            .method-card {
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                padding: 15px;
+                border-radius: 8px;
+                text-align: center;
+            }
+            .method-card h4 {
+                margin-top: 0;
+                color: #2c3e50;
+            }
+            .sse-card {
+                border-left: 4px solid #e74c3c;
+            }
+            .omni-card {
+                border-left: 4px solid #f39c12;
+            }
+            .uase-card {
+                border-left: 4px solid #27ae60;
+            }
+            @media (max-width: 768px) {
+                .comparison-grid {
+                    grid-template-columns: 1fr;
+                }
+                .container {
+                    padding: 20px;
+                }
+            }
+            /* MathJax styling */
+            .MathJax {
+                font-size: 1.1em !important;
+            }
+        </style>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script
+            id="MathJax-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                    displayMath: [
+                        ["$$", "$$"],
+                        ["\\[", "\\]"],
+                    ],
+                },
+            };
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                Student Perspectives: The Importance of Stability in Dynamic
+                Network Analysis
+            </h1>
+
+            <div class="original-post-box">
+                <a href=https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/>Originally posted</a> on 10th January 2022
+            </div>
+
+            <h2>Introduction</h2>
+            <p>
+                Today is a great day to be a data scientist. More than ever, our
+                ability to both collect and analyse data allow us to solve
+                larger, more interesting, and more diverse problems. My research
+                focuses on analysing networks, which cover a mind-boggling range
+                of applications from modelling vast computer networks [1], to
+                detecting schizophrenia in brain networks [2]. In this blog, I
+                want to share some of the cool research I have been a part of
+                since joining the COMPASS CDT, which has to do with the analysis
+                of dynamic networks.
+            </p>
+
+            <h2>Network Basics</h2>
+            <p>
+                A network can be defined as an ordered pair, $(V, E)$, where $V$
+                is a node (or vertex) set and $E$ is an edge set. From this
+                definition, we can represent any $n$ node network in terms of an
+                adjacency matrix, $A \in \mathbb{R}^{n \times n}$, where for
+                nodes $i, j \in V$,
+            </p>
+
+            <div class="math-formula">
+                $$A_{ij} = \begin{cases} 1 & \text{if } (i,j) \in E \\ 0 &
+                \text{if } (i,j) \not\in E \end{cases}$$
+            </div>
+
+            <p>
+                When we model networks, we can assume that there are some
+                unobservable weightings which mean that certain nodes have a
+                higher connection probability than others. We then observe these
+                in the adjacency matrix with some added noise (like an image
+                that has been blurred). Under this assumption, there must exist
+                some unobservable noise-free version of the adjacency matrix
+                (i.e. the image) that we call the probability matrix,
+                $\mathbf{P} \in \mathbb{R}^{n \times n}$. Mathematically, we
+                represent this by saying
+            </p>
+
+            <div class="math-formula">
+                $$A_{ij} \overset{\text{ind}}{\sim} \text{Bernoulli}(P_{ij})$$
+            </div>
+
+            <p>
+                where we have chosen a Bernoulli distribution as it will return
+                either a 1 or a 0. As the connection probabilities are not
+                uniform across the network (inhomogeneous) and the adjacency is
+                sampled from some probability matrix (random), we say that
+                $\mathbf{A}$ is an inhomogeneous random graph.
+            </p>            <div class="figure-caption">
+                <img src="figs/A-and-P-Example.png" alt="Inhomogeneous random graph example" style="max-width: 100%; height: auto; margin-bottom: 10px; border-radius: 8px;">
+                <strong>Figure 1:</strong> An inhomogeneous random graph. From
+                some probability matrix, we draw an adjacency matrix that
+                represents a network.
+            </div>
+
+            <p>
+                Going a step further, we can model each node as having a latent
+                position, which can be used to generate its connection
+                probabilities and, hence define its behaviour. Using this, we
+                can define node communities; a group of nodes that have the same
+                underlying connection probabilities, meaning they have the same
+                latent positions. We call this kind of model a latent position
+                model. For example, in a network of social interactions at a
+                school, we expect that pupils are more likely to interact with
+                other pupils in their class. In this case, pupils in the same
+                class are said to have similar latent positions and are part of
+                a node community. Mathematically, we say there is a latent
+                position $\mathbf{Z}_i \in \mathbb{R}^{k}$ assigned to each
+                node, and then our probability matrix will be the gram matrix of
+                some kernel, $f: \mathbb{R}^k \times \mathbb{R}^k \rightarrow
+                [0,1]$. From this, we generate our adjacency matrix as
+            </p>
+
+            <div class="math-formula">
+                $$A_{ij} \overset{\text{ind}}{\sim}
+                \text{Bernoulli}(f(\mathbf{Z}_i, \mathbf{Z}_j))$$
+            </div>
+
+            <p>
+                Under this model, our goal is then to estimate the latent
+                positions by analysing $\mathbf{A}$.
+            </p>
+
+            <h2>Network Embedding</h2>
+            <p>
+                Network embedding is a way of representing an $n$ node network
+                as a $d$-dimensional vector space, where $d \ll n$. This is
+                useful for two main reasons.
+            </p>
+
+            <div class="highlight-box">
+                <ol>
+                    <li>
+                        It allows us to only have to worry about a few feature
+                        vectors, as opposed to potentially thousands.
+                    </li>
+                    <li>
+                        By having a vector space representation, we open the
+                        flood gates for machine learning methods!
+                    </li>
+                </ol>
+            </div>
+
+            <p>
+                One simple, but very popular method of embedding is called
+                spectral embedding. We start by taking the spectral
+                decomposition (or eigendecomposition) of an adjacency matrix,
+            </p>
+
+            <div class="math-formula">
+                $$\mathbf{A} = \underbrace{\mathbf{U \Lambda
+                U^\top}}_{\text{Largest } d} + \underbrace{\mathbf{U}_{\perp}
+                \mathbf{\Lambda}_{\perp}
+                \mathbf{U}_{\perp}^\top}_{\text{Discard}}$$
+            </div>
+
+            <p>
+                where $\mathbf{\Lambda} \in \mathbb{R}^{d \times d}$ is a
+                diagonal matrix of the largest $d$ eigenvalues, and $\mathbf{U}
+                \in \mathbb{R}^{n \times d}$ are the corresponding eigenvectors.
+                We discard the rest of the eigenvalues and eigenvectors. Our
+                spectral embedding is then given by $\mathbf{Y} = \mathbf{U}
+                |\mathbf{\Lambda}|^{1/2} \in \mathbb{R}^{n \times d}$.
+            </p>
+
+            <div class="algorithm-box">
+                <strong>Simple, right?</strong>
+            </div>
+
+            <p>
+                To demonstrate how effective this embedding is, Figure 2 shows
+                an example network that features three communities of nodes
+                (i.e. there are three distinct latent positions). By taking the
+                spectral embedding of such a network, we can estimate the latent
+                positions as the nodes will form Gaussian clusters around them.
+            </p>            <div class="figure-caption">
+                <img src="figs/SBM_with_ASE_with_latent_positions.png" alt="Spectral embedding with three node communities" style="max-width: 100%; height: auto; margin-bottom: 10px; border-radius: 8px;">
+                <strong>Figure 2:</strong> A spectral embedding of an example
+                network with three node communities with their connection
+                probabilities labelled. The nodes are much more likely to
+                connect to others in the same community, so we observe three
+                clearly separated clusters in the embedding. The clusters are
+                Gaussian distributions centred around the latent positions,
+                shown in red.
+            </div>
+
+            <h2>Dynamic Network Embedding and Stability</h2>
+            <p>
+                We can capture a dynamic network through a series of adjacency
+                matrices, $\{\mathbf{A}^{(1)}, \dots, \mathbf{A}^{(T)}\}$
+                representing snapshots of the network at times $\{1, \dots,
+                T\}$. To compute an embedding of this dynamic network, we want a
+                way of getting a vector space representation of each adjacency
+                snapshot. However, we also need our dynamic embedding to be
+                stable. I will now define stability in two parts.
+            </p>
+
+            <div class="stability-definition">
+                <ol>
+                    <li>
+                        <strong>Longitudinal stability:</strong> if a node does
+                        not change its behaviour over time, it does not move in
+                        the embedding space, $\mathbf{Y}^{(t)}_i =
+                        \mathbf{Y}^{(t')}_i$.
+                    </li>
+                    <li>
+                        <strong>Cross-sectional stability:</strong> if node $i$
+                        behaves identically to another node $j$ at some time
+                        $t$, then they are given the same position in the
+                        embedding space, $\mathbf{Y}^{(t)}_i =
+                        \mathbf{Y}^{(t)}_j$.
+                    </li>
+                </ol>
+            </div>
+
+            <p>
+                These conditions are natural because without longitudinal
+                stability you cannot tell if a node is moving or stationary, and
+                without cross-sectional stability, you cannot tell if any two
+                nodes are behaving in the same way.
+            </p>
+
+            <p>
+                Recently, the research group that I am part of has developed a
+                longitudinally and cross-sectionally stable dynamic embedding
+                method known as the unfolded adjacency spectral embedding (or
+                UASE) [3]. First, we construct a concatenation of all the
+                adjacency snapshots, called the unfolded adjacency,
+            </p>
+
+            <div class="math-formula">
+                $$\mathbf{A} = \left[\mathbf{A}^{(1)} | \dots | \mathbf{A}^{(T)}
+                \right] \in \mathbb{R}^{n \times nT}$$
+            </div>
+
+            <p>
+                Then we compute the spectral embedding of this unfolded
+                adjacency matrix. As this matrix is rectangular, we cannot use
+                spectral decomposition so instead we use the singular value
+                decomposition and retain the top $d$ singular values,
+            </p>
+
+            <div class="math-formula">
+                $$\mathbf{A} = \underbrace{\mathbf{U \Sigma
+                V^\top}}_{\text{Largest } d} + \underbrace{\mathbf{U}_{\perp}
+                \mathbf{\Sigma}_{\perp}
+                \mathbf{V}_{\perp}^\top}_{\text{Discard}}$$
+            </div>
+
+            <p>
+                where $\Sigma \in \mathbb{R}^{d \times d}$ is a diagonal matrix
+                containing the largest $d$ singular values and $\mathbf{U} \in
+                \mathbb{R}^{n \times d}$ and $\mathbf{V} \in \mathbb{R}^{nT
+                \times d}$ are the corresponding left and right singular
+                vectors. We then compute our spectral embedding using the right
+                singular vectors, $\mathbf{Y} = \mathbf{V\Sigma}^{1/2} \in
+                \mathbb{R}^{nT \times d}$, such that we can split $\mathbf{Y}$
+                into $T$ $n \times d$ snapshot representations.
+            </p>
+
+            <h2>Real Data</h2>
+            <p>
+                Now I'm going to demonstrate the importance of stability on some
+                real data. The data set I have selected is a social interaction
+                network of pupils and teachers at a French primary school as it
+                exhibits significant periodic changes in structure as the day
+                moves from class time to playtime [4]. We expect children and
+                their teachers to only interact with others in their class
+                during class time but may interact with anyone at break time.
+            </p>
+
+            <p>
+                As with most real data, this data set is degree-heterogeneous; a
+                way of saying that some nodes of the same community will have
+                more interactions than others (these nodes are said to have a
+                higher degree). So a very social pupil from class 1 will be
+                further from the origin in the embedding space than a less
+                social pupil in the same class. We, therefore, observe that
+                nodes within the same community lie on a 1D subspace (which
+                looks like a "ray"), with nodes with a higher activity further
+                away from zero. During the class times, we expect our embeddings
+                to have this ray structure.
+            </p>            <div class="figure-caption">
+                <img src="figs/Ray-structure-diagram_corrected.png" alt="Ray structure illustration" style="max-width: 100%; height: auto; margin-bottom: 10px; border-radius: 8px;">
+                <strong>Figure 3:</strong> An illustration of "ray" structure,
+                which appears in spectral embeddings when working with
+                degree-heterogeneous data. Nodes from a given community will be
+                distributed around a "ray" that passes through the origin. Nodes
+                with a larger number of connections will be placed further from
+                the origin on these rays.
+            </div>
+
+            <p>
+                Below is a figure with three different dynamic embedding
+                methods. The separate spectral embedding (SSE) method computes a
+                separate spectral embedding for each adjacency snapshot. The
+                problem with doing this is that each time a new spectral
+                embedding is calculated, the nodes are placed in a different
+                space. This means that rays can appear to rotate significantly,
+                even if they do not change their behaviour over time. This makes
+                SSE a longitudinally unstable method. We can observe this
+                problem below as colours representing the classes move wildly
+                between time points (even during class times!), whereas the
+                other two methods can display that node behaviour does not
+                change significantly over class time (e.g. at 8 am and 9 am).
+            </p>
+
+            <div class="comparison-grid">
+                <div class="method-card sse-card">
+                    <h4>SSE (Separate Spectral Embedding)</h4>
+                    <p>
+                        Longitudinally unstable - rays rotate wildly between
+                        time points
+                    </p>
+                </div>
+                <div class="method-card omni-card">
+                    <h4>OMNI (Omnibus Embedding)</h4>
+                    <p>
+                        Longitudinally stable but not cross-sectionally stable
+                    </p>
+                </div>
+                <div class="method-card uase-card">
+                    <h4>UASE (Unfolded Adjacency Spectral Embedding)</h4>
+                    <p>Both longitudinally and cross-sectionally stable</p>
+                </div>
+            </div>
+
+            <p>
+                The omnibus embedding (or OMNI) computes a spectral embedding on
+                a single matrix containing averages of all adjacency snapshots
+                [2]. This allows it to be longitudinally stable as nodes remain
+                in the same space over time. However, due to the averaging
+                components of the matrix, it is not cross-sectionally stable.
+                This problem is most apparent as we transition from class time
+                (8 am and 9 am) to lunchtime (12 pm and 1 pm) as the class-like
+                ray structure remains present, as opposed to UASE, despite
+                people being able to freely interact with anyone. Only
+                cross-sectionally stable methods can show such a significant                change in network behaviour.
+            </p>
+
+            <div class="figure-caption">
+                <iframe src="https://edwarddavis1.github.io/plotly-host/" 
+                        width="100%" 
+                        height="600" 
+                        frameborder="0" 
+                        style="border-radius: 8px; margin: 20px 0;">
+                </iframe>
+                <strong>Interactive Figure:</strong> Dynamic network embedding comparison showing the differences between SSE, OMNI, and UASE methods over time. Use the controls to explore how each method handles the temporal evolution of the school interaction network.
+            </div>
+
+            <h2>Conclusion</h2>
+            <div class="conclusion-box">
+                In conclusion, it is essential to use a fully stable dynamic
+                embedding method to fully understand how a dynamic network
+                changes over time. Now that we have a fully stable method in the
+                form of the UASE, it's exciting to see what we can discover in
+                dynamic network datasets (of which there are many!) that
+                previous unstable methods would not have been able to find.
+            </div>
+
+            <div class="references">
+                <h3>References</h3>
+                <p>
+                    [1] P. Rubin-Delanchy, "Manifold structure in graph
+                    embeddings," https://arxiv.org/abs/2006.05168, 2021.
+                </p>
+
+                <p>
+                    [2] K. Levin, A. Athreya, M. Tang, V. Lyzinski, and C. E.
+                    Priebe, "A central limit theorem for an omnibus embedding of
+                    random dot product graphs," arXiv preprint arXiv:1705.09355,
+                    2017.
+                </p>
+
+                <p>
+                    [3] I. Gallagher, A. Jones, and P. Rubin-Delanchy, "Spectral
+                    embedding for dynamic networks with stability guarantees,"
+                    arXiv preprint arXiv:2106.01282, 2021.
+                </p>
+
+                <p>
+                    [4] Ryan A. Rossi and Nesreen K. Ahmed, "The Network Data
+                    Repository with Interactive Graph Analytics and
+                    Visualization,"
+                    https://networkrepository.com/ia-primary-school-proximity-attr.php,
+                    2015.
+                </p>
+            </div>
+
+            <div class="author-box" style="margin-top: 30px">
+                <p>
+                    <strong>Tags:</strong> graph embedding, network, stability,
+                    Student perspectives
+                </p>
+                <p><strong>Posted in:</strong> Students</p>
+            </div>
+        </div>
+    </body>
+</html>
