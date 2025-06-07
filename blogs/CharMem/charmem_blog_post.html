@@ -3,8 +3,99 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CharMem: Building an AI-Powered Character Analysis Tool</title>
+        <title>
+            CharMem: Building an AI-Powered Character Analysis Tool | Ed Davis
+        </title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+        <link rel="alternate icon" type="image/png" href="../../favicon.png" />
+        <script src="../../favicon.js"></script>
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
         <style>
+            /* Navigation Header */
+            .blog-header {
+                background: linear-gradient(135deg, #2563eb, #e11d48);
+                color: white;
+                padding: 15px 0;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .blog-nav {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .blog-nav .logo {
+                font-size: 1.5em;
+                font-weight: 700;
+                text-decoration: none;
+                color: white;
+                font-family: "Space Grotesk", sans-serif;
+            }
+
+            .blog-nav .nav-links {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .blog-nav .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .blog-nav .nav-links a::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -2px;
+                left: 0;
+                background: rgba(255, 255, 255, 0.8);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            .blog-nav .nav-links a:hover::after {
+                transform: scaleX(1);
+            }
+
+            .breadcrumb {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 20px;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.9em;
+                margin-top: 10px;
+            }
+
+            .breadcrumb a {
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+            }
+
+            .breadcrumb a:hover {
+                color: white;
+            }
+
             body {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -138,6 +229,21 @@
                 color: #6c757d;
             }
             @media (max-width: 768px) {
+                .blog-nav {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .blog-nav .nav-links {
+                    gap: 15px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .blog-nav .nav-links a {
+                    font-size: 0.9em;
+                }
+
                 .challenge-solution {
                     grid-template-columns: 1fr;
                 }
@@ -148,6 +254,27 @@
         </style>
     </head>
     <body>
+        <!-- Blog Navigation Header -->
+        <header class="blog-header">
+            <nav class="blog-nav">
+                <a href="../../index.html" class="logo">
+                    <i class="fas fa-arrow-left"></i> Ed Davis
+                </a>
+                <div class="nav-links">
+                    <a href="../../index.html#about">Research</a>
+                    <a href="../../index.html#papers">Papers</a>
+                    <a href="../../index.html#projects">Projects</a>
+                    <a href="../../blog_page.html">Blog</a>
+                    <a href="../../cv.html">CV</a>
+                </div>
+            </nav>
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> >
+                <a href="../../blog_page.html">Blog</a> > CharMem: AI-Powered
+                Character Analysis
+            </div>
+        </header>
+
         <div class="container">
             <h1>CharMem: Building an AI-Powered Character Analysis Tool</h1>
 
