@@ -1,0 +1,17 @@
+# Ignore all blogs by default
+blogs/
+
+# Exception: Allow finished blog posts
+!blogs/importance_of_stability_in_dynamic_embeddings/
+
+# Other common ignores
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+node_modules/
+.env
+.vscode/
+*.swp
+*.swo
+*~

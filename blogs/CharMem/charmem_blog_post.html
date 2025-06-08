@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            CharMem: Building an AI-Powered Character Analysis Tool | Ed Davis
+        </title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+        <link rel="alternate icon" type="image/png" href="../../favicon.png" />
+        <script src="../../favicon.js"></script>
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            /* Navigation Header */
+            .blog-header {
+                background: linear-gradient(135deg, #2563eb, #e11d48);
+                color: white;
+                padding: 15px 0;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .blog-nav {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .blog-nav .logo {
+                font-size: 1.5em;
+                font-weight: 700;
+                text-decoration: none;
+                color: white;
+                font-family: "Space Grotesk", sans-serif;
+            }
+
+            .blog-nav .nav-links {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .blog-nav .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .blog-nav .nav-links a::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: -2px;
+                left: 0;
+                background: rgba(255, 255, 255, 0.8);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            .blog-nav .nav-links a:hover::after {
+                transform: scaleX(1);
+            }
+
+            .breadcrumb {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 20px;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.9em;
+                margin-top: 10px;
+            }
+
+            .breadcrumb a {
+                color: rgba(255, 255, 255, 0.9);
+                text-decoration: none;
+            }
+
+            .breadcrumb a:hover {
+                color: white;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                line-height: 1.6;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 20px;
+                color: #333;
+                background-color: #f8f9fa;
+            }
+            .container {
+                background: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color: #2c3e50;
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 2.5em;
+                border-bottom: 3px solid #3498db;
+                padding-bottom: 10px;
+            }
+            h2 {
+                color: #34495e;
+                margin-top: 30px;
+                margin-bottom: 15px;
+                font-size: 1.5em;
+                border-left: 4px solid #3498db;
+                padding-left: 15px;
+            }
+            h3 {
+                color: #2c3e50;
+                margin-top: 25px;
+                margin-bottom: 10px;
+            }
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 15px 0;
+            }
+            .tech-tag {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 0.9em;
+                font-weight: 500;
+            }
+            .highlight-box {
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                color: white;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .performance-metrics {
+                background: #e8f5e8;
+                border-left: 4px solid #27ae60;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 5px;
+            }
+            .code-snippet {
+                background: #2c3e50;
+                color: #ecf0f1;
+                padding: 15px;
+                border-radius: 5px;
+                font-family: "Courier New", monospace;
+                margin: 15px 0;
+                overflow-x: auto;
+            }
+            .architecture-diagram {
+                background: #f8f9fa;
+                border: 2px solid #dee2e6;
+                padding: 20px;
+                border-radius: 8px;
+                margin: 20px 0;
+                text-align: center;
+            }
+            .project-timeline {
+                background: linear-gradient(45deg, #f39c12, #e67e22);
+                color: white;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 20px 0;
+            }
+            .challenge-solution {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                margin: 20px 0;
+            }
+            .challenge,
+            .solution {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            .challenge {
+                background: #fff5f5;
+                border-left: 4px solid #e74c3c;
+            }
+            .solution {
+                background: #f0fff0;
+                border-left: 4px solid #27ae60;
+            }
+            ul {
+                margin: 10px 0;
+                padding-left: 25px;
+            }
+            li {
+                margin: 5px 0;
+            }
+            .result-example {
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                padding: 15px;
+                margin: 15px 0;
+                font-style: italic;
+            }
+            .footer-note {
+                background: #e9ecef;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 30px;
+                text-align: center;
+                color: #6c757d;
+            }
+            @media (max-width: 768px) {
+                .blog-nav {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .blog-nav .nav-links {
+                    gap: 15px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                .blog-nav .nav-links a {
+                    font-size: 0.9em;
+                }
+
+                .challenge-solution {
+                    grid-template-columns: 1fr;
+                }
+                .container {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Blog Navigation Header -->
+        <header class="blog-header">
+            <nav class="blog-nav">
+                <a href="../../index.html" class="logo">
+                    <i class="fas fa-arrow-left"></i> Ed Davis
+                </a>
+                <div class="nav-links">
+                    <a href="../../index.html#about">Research</a>
+                    <a href="../../index.html#papers">Papers</a>
+                    <a href="../../index.html#projects">Projects</a>
+                    <a href="../../blog_page.html">Blog</a>
+                </div>
+            </nav>
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a> >
+                <a href="../../blog_page.html">Blog</a> > CharMem: AI-Powered
+                Character Analysis
+            </div>
+        </header>
+
+        <div class="container">
+            <h1>CharMem: Building an AI-Powered Character Analysis Tool</h1>
+
+            <div class="highlight-box">
+                <strong>Project Overview:</strong> CharMem is a sophisticated
+                RAG (Retrieval-Augmented Generation) application that provides
+                spoiler-free character summaries from books using semantic
+                search and large language models. Users can upload PDFs and get
+                intelligent character analysis that only includes information up
+                to their current reading progress.
+            </div>
+
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">LangChain</span>
+                <span class="tech-tag">ChromaDB</span>
+                <span class="tech-tag">HuggingFace</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML/CSS</span>
+                <span class="tech-tag">PyTest</span>
+                <span class="tech-tag">GitHub Actions</span>
+                <span class="tech-tag">CUDA</span>
+            </div>
+
+            <h2>🎯 Project Goals & Motivation</h2>
+            <p>
+                As an avid reader and AI enthusiast, I wanted to build a
+                practical application that showcases modern ML engineering
+                skills while solving a real problem. CharMem addresses the
+                challenge of remembering character details in complex novels
+                without encountering spoilers.
+            </p>
+
+            <h2>🏗️ System Architecture</h2>
+            <div class="architecture-diagram">
+                <h3>RAG Pipeline Architecture</h3>
+                <div
+                    style="
+                        font-family: monospace;
+                        text-align: left;
+                        display: inline-block;
+                    "
+                >
+                    📄 PDF Upload → 🔄 Text Chunking → 🧠 Embedding Generation →
+                    💾 Vector Storage<br />
+                    ↓<br />
+                    💬 User Query → 🔍 Semantic Search → 📝 Context Retrieval →
+                    🤖 LLM Generation
+                </div>
+            </div>
+
+            <div class="code-snippet">
+                # Core RAG Pipeline Implementation 1. Query embedding 2. Chunk
+                corpus and get top-k similar chunks 3. Retrieve context + query
+                4. Feed to LLM 5. Generate spoiler-free character analysis
+            </div>
+
+            <h2>⚡ Technical Achievements</h2>
+
+            <h3>Performance Optimization Journey</h3>
+            <div class="challenge-solution">
+                <div class="challenge">
+                    <h4>🔴 Challenge: Embedding Latency</h4>
+                    <p>
+                        Initial embedding function instantiation took
+                        <strong>1m 30s</strong>, making the application unusable
+                        for real-time queries.
+                    </p>
+                </div>
+                <div class="solution">
+                    <h4>🟢 Solution: HuggingFace Inference API</h4>
+                    <p>
+                        Migrated to HuggingFace Endpoint Embeddings, reducing
+                        instantiation time to <strong>0.0s</strong> and enabling
+                        access to larger models.
+                    </p>
+                </div>
+            </div>
+
+            <div class="performance-metrics">
+                <h4>📊 Final Performance Metrics (Harry Potter Book 1)</h4>
+                <ul>
+                    <li><strong>PDF Loading:</strong> 2.1s</li>
+                    <li><strong>Vector Database Creation:</strong> 10.3s</li>
+                    <li><strong>Semantic Search (k=50):</strong> 0.1s</li>
+                    <li>
+                        <strong>LLM Response:</strong> 3.0s - 13.8s (model
+                        dependent)
+                    </li>
+                    <li><strong>Total Pipeline:</strong> 15.5s - 26.3s</li>
+                </ul>
+            </div>
+
+            <h3>Model Evaluation & Selection</h3>
+            <p>Conducted comprehensive evaluation of multiple LLMs:</p>
+            <ul>
+                <li>
+                    <strong>Falcon-1B:</strong> Fast but suffered from
+                    hallucination and poor instruction following
+                </li>
+                <li>
+                    <strong>EXAONE-3.5-2.4B:</strong> Better instruction
+                    following but still unreliable
+                </li>
+                <li>
+                    <strong>Phi-4-14.7B:</strong> Optimal balance of speed and
+                    accuracy for production use
+                </li>
+                <li>
+                    <strong>Qwen-235B:</strong> Superior accuracy but slower
+                    response times
+                </li>
+            </ul>
+
+            <div class="result-example">
+                <strong>Example Output:</strong><br />
+                "Hermione Granger is a brilliant and independent character,
+                known for her extensive knowledge and academic excellence. We
+                first met her on page 77 when she introduced herself to Harry
+                Potter. Recent events include her confronting a mountain troll
+                on page 129 and her expertise helping solve various magical
+                challenges."
+            </div>
+
+            <h2>💻 Full-Stack Development</h2>
+
+            <h3>Backend Architecture</h3>
+            <ul>
+                <li>
+                    <strong>FastAPI:</strong> RESTful API with automatic
+                    documentation
+                </li>
+                <li>
+                    <strong>ChromaDB:</strong> Vector database for semantic
+                    search
+                </li>
+                <li>
+                    <strong>LangChain:</strong> Document processing and LLM
+                    orchestration
+                </li>
+                <li>
+                    <strong>PyPDF2:</strong> PDF parsing and text extraction
+                </li>
+            </ul>
+
+            <h3>Frontend Implementation</h3>
+            <ul>
+                <li>
+                    <strong>Vanilla JavaScript:</strong> File upload handling
+                    and API communication
+                </li>
+                <li>
+                    <strong>Responsive HTML/CSS:</strong> Clean, modern user
+                    interface
+                </li>
+                <li>
+                    <strong>Real-time chat interface:</strong> Interactive
+                    character queries
+                </li>
+            </ul>
+
+            <h2>🔬 Advanced RAG Optimization</h2>
+
+            <h3>Chunk Size Experimentation</h3>
+            <div class="challenge-solution">
+                <div class="challenge">
+                    <h4>Initial Problem</h4>
+                    <p>
+                        Large chunks (1000 chars) missed character introductions
+                        due to limited retrieval context.
+                    </p>
+                </div>
+                <div class="solution">
+                    <h4>Optimization Strategy</h4>
+                    <p>
+                        Reduced chunk size to 200 characters and increased
+                        k-value to 50, dramatically improving "first meeting"
+                        accuracy.
+                    </p>
+                </div>
+            </div>
+
+            <h3>Prompt Engineering</h3>
+            <p>Developed structured prompts requiring three-part responses:</p>
+            <ol>
+                <li>Character summary based on retrieved context</li>
+                <li>First meeting location with page numbers</li>
+                <li>Recent story events (spoiler-free)</li>
+            </ol>
+
+            <h2>🧪 Testing & DevOps Excellence</h2>
+
+            <h3>Comprehensive Testing Strategy</h3>
+            <ul>
+                <li>
+                    <strong>Mock Testing:</strong> Isolated API calls using
+                    Python unittest.mock
+                </li>
+                <li>
+                    <strong>Coverage Testing:</strong> Achieved 100% test
+                    coverage using pytest-cov
+                </li>
+                <li>
+                    <strong>Unit Tests:</strong> Comprehensive test suite for
+                    all RAG components
+                </li>
+            </ul>
+
+            <div class="code-snippet">
+                # Example Mock Testing Implementation
+                @patch("backend.RAG.HuggingFaceEndpointEmbeddings")
+                @patch("backend.RAG.Chroma.from_documents")
+                @patch("backend.RAG.InferenceClient") def
+                test_generate_character_analysis(self, mock_client, mock_chroma,
+                mock_embeddings): # Test RAG pipeline without expensive API
+                calls
+            </div>
+
+            <h3>CI/CD Pipeline</h3>
+            <ul>
+                <li>
+                    <strong>GitHub Actions:</strong> Automated testing and
+                    linting on every push
+                </li>
+                <li>
+                    <strong>Pre-commit Hooks:</strong> Code quality enforcement
+                    before commits
+                </li>
+                <li>
+                    <strong>Ruff Linting:</strong> Consistent code formatting
+                    and style
+                </li>
+            </ul>
+
+            <div class="project-timeline">
+                <h3>📅 Development Timeline (10 Days)</h3>
+                <strong>Days 1-2:</strong> RAG fundamentals and initial
+                prototyping<br />
+                <strong>Days 3-4:</strong> Model evaluation and CUDA
+                optimization<br />
+                <strong>Days 5-6:</strong> HuggingFace integration and
+                performance tuning<br />
+                <strong>Days 7-8:</strong> Full-stack web application
+                development<br />
+                <strong>Days 9-10:</strong> Testing framework and CI/CD
+                implementation
+            </div>
+
+            <h2>🚀 Key Technical Skills Demonstrated</h2>
+            <ul>
+                <li>
+                    <strong>Machine Learning Engineering:</strong> RAG pipeline
+                    design, model evaluation, and optimization
+                </li>
+                <li>
+                    <strong>API Development:</strong> RESTful services with
+                    FastAPI and comprehensive documentation
+                </li>
+                <li>
+                    <strong>Database Management:</strong> Vector databases and
+                    semantic search implementation
+                </li>
+                <li>
+                    <strong>Performance Engineering:</strong> Latency
+                    optimization and resource management
+                </li>
+                <li>
+                    <strong>Testing Excellence:</strong> Mock testing, coverage
+                    analysis, and automated CI/CD
+                </li>
+                <li>
+                    <strong>Frontend Development:</strong> Interactive web
+                    interfaces and user experience design
+                </li>
+                <li>
+                    <strong>DevOps Practices:</strong> GitHub Actions,
+                    pre-commit hooks, and deployment strategies
+                </li>
+            </ul>
+
+            <h2>🔮 Future Enhancements</h2>
+            <ul>
+                <li>
+                    FAISS integration for improved vector search performance
+                </li>
+                <li>Advanced chunking strategies with overlapping windows</li>
+                <li>Multi-book library management system</li>
+                <li>Reading progress tracking and synchronization</li>
+                <li>Automated evaluation metrics for RAG quality assessment</li>
+            </ul>
+
+            <div class="footer-note">
+                <p>
+                    <strong>Technologies:</strong> Python, FastAPI, LangChain,
+                    ChromaDB, HuggingFace Transformers, JavaScript, HTML/CSS,
+                    PyTest, GitHub Actions
+                </p>
+                <p>
+                    <strong>Key Achievements:</strong> 100% test coverage •
+                    15-26s end-to-end latency • Comprehensive model evaluation •
+                    Production-ready CI/CD pipeline
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

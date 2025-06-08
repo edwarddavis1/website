@@ -3,11 +3,91 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ed Davis</title>
+        <title>Ed Davis | Blog</title>
         <link rel="stylesheet" href="css/modern.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
               integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="../../favicon.js"></script>
+
+        <style>
+            /* Blog-specific styling */
+            #blog article {
+                background: white;
+                padding: 30px;
+                margin-bottom: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            #blog article:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            }
+            
+            #blog article h3 {
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+            
+            #blog article h3 a {
+                color: var(--primary);
+                text-decoration: none;
+                font-size: 1.5em;
+                font-weight: 600;
+            }
+            
+            #blog article p {
+                color: var(--gray-700);
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            
+            .tech-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 15px;
+            }
+            
+            .tech-tag {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 4px 12px;
+                border-radius: 15px;
+                font-size: 0.85em;
+                font-weight: 500;
+            }
+            
+            .iframe-container {
+                margin-top: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .iframe-container iframe {
+                width: 100%;
+                height: 400px;
+                border: none;
+            }
+            
+            @media (max-width: 768px) {
+                #blog article {
+                    padding: 20px;
+                }
+                
+                .tech-tags {
+                    gap: 6px;
+                }
+                
+                .tech-tag {
+                    font-size: 0.8em;
+                    padding: 3px 10px;
+                }
+            }
+        </style>
     </head>
     <body>
 <header>
@@ -18,7 +98,6 @@
     </button>
     <div class="nav-menu"> 
       <a href="index.html" class="nav-link">Home</a>
-      <a href="cv.html" class="nav-link">CV</a>
       <a href="#blog" class="nav-link active">Blog</a>
     </div>
   </nav>
@@ -28,23 +107,17 @@
     <div class="container">
         <h1>Recent Blog Posts</h1>
 
-        <!-- <article>
-            <h3><a href="intro_to_graph_embedding.html">An Introduction to Graph Embedding</a> </h3>
-        </article>
-        <p>What is a graph embedding anyway? Why is it useful?</p>
 
-        <div class="network-embedding-container">
-        <iframe src="https://edwarddavis1.github.io/network_to_embedding_figure/index.html" width="100%" height="600px" frameborder="0" data-iframe-resize="true" style="min-height: 500px;"></iframe>
-        </div> -->
-
+        <!-- Dynamic Network Embedding Blog Post -->
         <article>
-        <!-- <h3><a href="the_importance_of_stability.html">The Importance of Stability in Dynamic Network Embedding</a></h3> -->
-        <h3><a href="https://compass.blogs.bristol.ac.uk/2022/01/10/student-perspectives-ed-davis/">The Importance of Stability in Dynamic Network Embedding</a></h3>
-        <p>Dynamic network embedding is a powerful technique for analysing time-varying networks, but it can be challenging to ensure that the embeddings remain stable over time. In this blog post, we explore the importance of stability in dynamic network embedding and discuss some strategies for achieving it.</p>
-    </article>
+            <h3><a href="blogs/importance_of_stability_in_dynamic_embeddings/importance_of_stability_blog.html">The Importance of Stability in Dynamic Network Embedding</a></h3>
+            <p>Dynamic network embedding is a powerful technique for analysing time-varying networks, but it can be challenging to ensure that the embeddings remain stable over time. In this blog post, we explore the importance of stability in dynamic network embedding and discuss some strategies for achieving it.</p>
             <div class="iframe-container">
-            <iframe src="https://edwarddavis1.github.io/plotly-host/" width="100%" frameborder="0"></iframe>
+                <iframe src="https://edwarddavis1.github.io/plotly-host/" width="100%" frameborder="0"></iframe>
             </div>
+        </article>
+
+
     </div>
 
 
