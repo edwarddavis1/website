@@ -1317,7 +1317,7 @@ footer::before {
     );
     padding: 2px 6px;
     border-radius: 4px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--primary);
     /* border-bottom: 2px solid var(--primary-light); */
 }
@@ -1330,7 +1330,7 @@ footer::before {
     );
     padding: 2px 6px;
     border-radius: 4px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--secondary);
     /* border-bottom: 2px solid var(--secondary-light); */
 }
