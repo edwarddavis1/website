@@ -66,7 +66,7 @@
         <div class="profile-container">
           <img src="assets/images/pp.jpg" alt="Ed Davis" class="profile-picture" data-aos="fade-in">
           <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Dr Ed Davis</h1>
-          <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">PhD, Geometric Deep Learning and Graph ML</h2>
+          <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">Interested in all things AI</h2>
           <p class="mb-4" data-aos="fade-up" data-aos-delay="600"><span class="typed-text"></span></p>
         </div>
       </div>
@@ -261,10 +261,94 @@
     <!-- Projects Section -->
     <section id="projects" class="bg-light">
       <div class="container">
-        <h2 class="text-center">Projects</h2>
+        <h2 class="text-center">Recent Projects</h2>
+        
+        <!-- CharMem LLM Project -->
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-content">
+            <h3 class="project-title">
+              <a href="https://github.com/edwarddavis1/CharMem-LLM" target="_blank">CharMem - AI Character Memory Assistant</a>
+            </h3>
+            
+            <p class="project-text">
+              CharMem is an intelligent chat application that helps readers keep track of characters in books using 
+              retrieval-augmented generation (RAG) with anti-spoiler technology. Upload any PDF book and get instant 
+              character summaries with page references - without spoilers!
+            </p>
+            
+            <p class="project-text">
+              Features include PDF upload & processing, anti-spoiler conversations, AI-powered responses using 
+              Qwen-235B model, real-time WebSocket chat, and precise page references for character introductions.
+            </p>
+            
+            <div class="text-center mt-4">
+              <img src="assets/demos/CharMem_split_view.png" 
+                   alt="CharMem Character Memory Assistant Demo" 
+                   class="images" 
+                   style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+                   data-aos="fade-up" />
+              <figcaption class="mt-2"><strong>Demo:</strong> CharMem interface showing character analysis with anti-spoiler technology and precise page references.</figcaption>
+            </div>
+            
+            <div class="code-background">
+              <pre><code class="language-python"># CharMem programmatic usage
+from backend.RAG import EmbeddedPDF
+from langchain.document_loaders import PyPDFLoader
+
+# Load your PDF
+loader = PyPDFLoader("path/to/your/book.pdf")
+pages = loader.load()
+
+# Create embedder and process PDF
+pdf_embedder = EmbeddedPDF()
+pdf_embedder.embed_pdf(pages)
+
+# Query character information
+response = pdf_embedder.generate_character_analysis("Character Name")
+print(response)</code></pre>
+            </div>
+            
+            <a href="https://github.com/edwarddavis1/CharMem-LLM" target="_blank" class="project-link mt-4">
+              <i class="fab fa-github"></i> View project on GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- FastAPI Multimodal Chatbot Project -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-content">
+            <h3 class="project-title">
+              <a href="https://github.com/edwarddavis1/FastAPI_learning/tree/master/chatBotApp" target="_blank">Multimodal Chatbot with FastAPI</a>
+            </h3>
+            
+            <p class="project-text">
+              A web application that enables real-time chat with Large Language Models using Hugging Face's Inference 
+              Providers system. Built with FastAPI backend and modern JavaScript frontend, featuring WebSocket communication 
+              and multimodal capabilities.
+            </p>
+            
+            <p class="project-text">
+              The chatbot supports both text and image inputs, uses models like Qwen2.5-VL-72B-Instruct for vision 
+              capabilities, and features a responsive dark-themed interface with smooth animations and typing indicators.
+            </p>
+            
+            <div class="text-center mt-4">
+              <img src="assets/demos/multimodal_chatbot_demo.gif" 
+                   alt="Multimodal Chatbot Demo" 
+                   class="images" 
+                   style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+                   data-aos="fade-up" />
+              <figcaption class="mt-2"><strong>Demo:</strong> Interactive multimodal chatbot supporting both text and image inputs with real-time WebSocket communication.</figcaption>
+            </div>
+            
+            <a href="https://github.com/edwarddavis1/FastAPI_learning/tree/master/chatBotApp" target="_blank" class="project-link mt-4">
+              <i class="fab fa-github"></i> View project on GitHub
+            </a>
+          </div>
+        </div>
         
         <!-- UGNN Project -->
-        <div class="project-card" data-aos="fade-up">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
           <div class="project-content">
             <div class="d-flex align-items-center mb-4">
               <img src="assets/images/ugnn_logo.png" alt="UGNN logo" class="project-logo mr-3">
@@ -328,7 +412,7 @@ Node 3704 (True label 2B): ['1A', '2A', '2B', '3A']</code></pre>
         </div>
         
         <!-- pyemb Project -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
           <div class="project-content">
             <div class="d-flex align-items-center mb-4">
               <img src="assets/images/pyemb_logo.png" alt="pyemb logo" class="project-logo mr-3">
@@ -370,7 +454,7 @@ fig = eb.quick_plot(URLSE_emb, n, T, node_labels)</code></pre>
         </div>
         
         <!-- Award-Winning Visualisation -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
           <div class="project-content">
             <h3 class="project-title">Award-Winning Data Visualisation</h3>
             <p class="project-text">
